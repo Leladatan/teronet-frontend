@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {routes} from "@/shared/const/routes";
 
 const HomeTitle = () => {
     return (
@@ -17,7 +16,7 @@ const HomeTitle = () => {
                 animate={{opacity: 1}}
                 transition={{delay: 0.2, duration: 0.6}}
             >
-                Добро пожаловать в {routes.home.title}
+                Территория нетворкинга Business Practice
             </motion.h1>
             <motion.p
                 className="text-xl text-muted-foreground"
@@ -25,7 +24,7 @@ const HomeTitle = () => {
                 animate={{opacity: 1}}
                 transition={{delay: 0.4, duration: 0.6}}
             >
-                Свяжитесь с работодателями и найдите свою возможность
+                Помогаем находить команду мечты, место работы или сотрудника
             </motion.p>
         </motion.div>
     );
