@@ -1,4 +1,5 @@
 import type {Config} from "tailwindcss";
+import animate from "tailwindcss-animate";
 
 export default {
     darkMode: ["class"],
@@ -56,8 +57,13 @@ export default {
                 lg: 'var(--radius)',
                 md: 'calc(var(--radius) - 2px)',
                 sm: 'calc(var(--radius) - 4px)'
+            },
+            // Добавление нового цвета
+            info: {
+                DEFAULT: '#39A9F4',
+                foreground: '#FFFFFF'
             }
         }
     },
-    plugins: [require("tailwindcss-animate")],
+    plugins: [animate],
 } satisfies Config;
