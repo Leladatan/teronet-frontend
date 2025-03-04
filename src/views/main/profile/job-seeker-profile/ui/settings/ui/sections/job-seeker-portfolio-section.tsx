@@ -261,9 +261,6 @@ const JobSeekerPortfolioSection = () => {
                             <Input
                                 value={currentProject.projectTypes.find((t) => !projectTypes.includes(t)) || ""}
                                 onChange={(e) => {
-                                    const otherTypes = currentProject.projectTypes.filter(
-                                        (t) => t !== "Другое" && !projectTypes.includes(t),
-                                    );
                                     if (e.target.value) {
                                         setCurrentProject({
                                             ...currentProject,

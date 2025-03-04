@@ -107,9 +107,6 @@ const formSchema = z.object({
 
 const EmployerProfileSettingsPage = () => {
     const [isEditing, setIsEditing] = useState(false)
-    const [selectedCompanyTypes, setSelectedCompanyTypes] = useState<string[]>([]);
-    const [selectedEmploymentTypes, setSelectedEmploymentTypes] = useState<string[]>([]);
-    const [selectedProjectTypes, setSelectedProjectTypes] = useState<string[]>([]);
 
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
