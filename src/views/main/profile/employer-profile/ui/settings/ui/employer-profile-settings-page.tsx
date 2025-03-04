@@ -2,8 +2,8 @@
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/shared/components/ui/tabs"
 
-import CompanyProfile from "@/views/main/employer-profile/ui/settings/ui/components/company-profile";
-import CandidatesList from "@/views/main/employer-profile/ui/settings/ui/components/candidates-list";
+import CompanyProfile from "@/views/main/profile/employer-profile/ui/settings/ui/components/company-profile";
+import CandidatesList from "@/views/main/profile/employer-profile/ui/settings/ui/components/candidates-list";
 
 const EmployerProfileSettingsPage = () => {
     return (

@@ -20,7 +20,7 @@ interface Project {
     description: string;
     link: string;
     competition: string;
-};
+}
 
 const JobSeekerPortfolioSection = () => {
     const [projects, setProjects] = useState<Project[]>([]);
@@ -263,7 +263,7 @@ const JobSeekerPortfolioSection = () => {
                                 onChange={(e) => {
                                     const otherTypes = currentProject.projectTypes.filter(
                                         (t) => t !== "Другое" && !projectTypes.includes(t),
-                                    )
+                                    );
                                     if (e.target.value) {
                                         setCurrentProject({
                                             ...currentProject,

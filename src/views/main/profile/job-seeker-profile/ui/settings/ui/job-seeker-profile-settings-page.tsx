@@ -3,11 +3,11 @@
 import { Card, CardContent } from "@/shared/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/shared/components/ui/tabs";
 
-import JobSeekerProfileSection from "@/views/main/job-seeker-profile/ui/settings/ui/sections/job-seeker-profile-section";
-import JobSeekerPortfolioSection from "@/views/main/job-seeker-profile/ui/settings/ui/sections/job-seeker-portfolio-section";
-import JobSeekerSoftSkillsSection from "@/views/main/job-seeker-profile/ui/settings/ui/sections/job-seeker-soft-skills-section";
-import JobSeekerHardSkillsSection from "@/views/main/job-seeker-profile/ui/settings/ui/sections/job-seeker-hard-skills-section";
-import JobSeekerInvitationsSection from "@/views/main/job-seeker-profile/ui/settings/ui/sections/job-seeker-invitations-section";
+import JobSeekerProfileSection from "@/views/main/profile/job-seeker-profile/ui/settings/ui/sections/job-seeker-profile-section";
+import JobSeekerPortfolioSection from "@/views/main/profile/job-seeker-profile/ui/settings/ui/sections/job-seeker-portfolio-section";
+import JobSeekerSoftSkillsSection from "@/views/main/profile/job-seeker-profile/ui/settings/ui/sections/job-seeker-soft-skills-section";
+import JobSeekerHardSkillsSection from "@/views/main/profile/job-seeker-profile/ui/settings/ui/sections/job-seeker-hard-skills-section";
+import JobSeekerInvitationsSection from "@/views/main/profile/job-seeker-profile/ui/settings/ui/sections/job-seeker-invitations-section";
 
 import { useState } from "react"
 

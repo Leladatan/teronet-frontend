@@ -1,8 +1,20 @@
-import JobSeekerProfileSettingsPage from "@/views/main/job-seeker-profile/ui/settings";
-import EmployerProfileSettingsPage from "@/views/main/employer-profile/ui/settings";
+"use client";
+
+import JobSeekerProfileSettingsPage from "@/views/main/profile/job-seeker-profile/ui/settings";
+import EmployerProfileSettingsPage from "@/views/main/profile/employer-profile/ui/settings";
+
+import {useParams} from "next/navigation";
 
 const Page = () => {
-    return <JobSeekerProfileSettingsPage/>;
+    const { id } = useParams();
+
+    if (Number(id) === 1) {
+        return <JobSeekerProfileSettingsPage/>;
+    }
+
+    if (Number(id) === 2) {
+        return <EmployerProfileSettingsPage/>;
+    }
 };
 
 export default Page;
