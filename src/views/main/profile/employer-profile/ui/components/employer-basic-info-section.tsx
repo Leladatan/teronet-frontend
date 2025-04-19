@@ -1,46 +1,83 @@
 "use client";
 
-import {employer} from "@/views/main/profile/employer-profile/const";
+import { motion } from "framer-motion";
+import { employer } from "@/views/main/profile/employer-profile/const";
 
-import {Building2} from "lucide-react";
+import { Building2 } from "lucide-react";
 
-import {Badge} from "@/shared/components/ui/badge";
-import {Avatar, AvatarFallback, AvatarImage} from "@/shared/components/ui/avatar";
-import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/shared/components/ui/card";
+import { Badge } from "@/shared/components/ui/badge";
+import { Avatar, AvatarFallback, AvatarImage } from "@/shared/components/ui/avatar";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/shared/components/ui/card";
+
+const MotionCard = motion(Card);
+const MotionAvatar = motion(Avatar);
 
 const EmployerBasicInfoSection = () => {
     return (
         <div className="w-full md:w-1/3 flex flex-col items-center">
-            <Avatar className="w-32 h-32 border-4 border-primary/10">
-                <AvatarImage src="/placeholder.svg?height=128&width=128" alt={employer.legalName}/>
+            <MotionAvatar
+                className="w-32 h-32 border-4 border-primary/10"
+                initial={{ scale: 0, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ type: "spring", stiffness: 260, damping: 20 }}
+            >
+                <AvatarImage src="/placeholder.svg?height=128&width=128" alt={employer.legalName} />
                 <AvatarFallback className="text-3xl bg-primary/10">
                     {employer.brandNames[0].substring(0, 2).toUpperCase()}
                 </AvatarFallback>
-            </Avatar>
+            </MotionAvatar>
 
-            <Card className="w-full mt-4">
+            <MotionCard
+                className="w-full mt-4"
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.3, duration: 0.5 }}
+            >
                 <CardHeader>
-                    <CardTitle className="text-xl text-center">{employer.brandNames[0]}</CardTitle>
-                    <CardDescription className="text-center">{employer.companyType}</CardDescription>
+                    <motion.div
+                        initial={{ y: -10, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ delay: 0.5 }}
+                    >
+                        <CardTitle className="text-xl text-center">{employer.brandNames[0]}</CardTitle>
+                    </motion.div>
+                    <motion.div
+                        initial={{ y: -5, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ delay: 0.6 }}
+                    >
+                        <CardDescription className="text-center">{employer.companyType}</CardDescription>
+                    </motion.div>
                 </CardHeader>
                 <CardContent>
                     <div className="space-y-2">
-                        <div className="flex items-center gap-2">
-                            <Building2 className="h-4 w-4 text-muted-foreground"/>
+                        <motion.div
+                            className="flex items-center gap-2"
+                            initial={{ x: -20, opacity: 0 }}
+                            animate={{ x: 0, opacity: 1 }}
+                            transition={{ delay: 0.7 }}
+                        >
+                            <Building2 className="h-4 w-4 text-muted-foreground" />
                             <span className="text-sm">{employer.legalName}</span>
-                        </div>
+                        </motion.div>
+
                         {employer.brandNames.length > 1 && (
-                            <div className="flex flex-wrap gap-2 mt-2">
+                            <motion.div
+                                className="flex flex-wrap gap-2 mt-2"
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ delay: 0.8 }}
+                            >
                                 {employer.brandNames.map((brand, index) => (
                                     <Badge key={index} variant="outline">
                                         {brand}
                                     </Badge>
                                 ))}
-                            </div>
+                            </motion.div>
                         )}
                     </div>
                 </CardContent>
-            </Card>
+            </MotionCard>
         </div>
     );
 };
