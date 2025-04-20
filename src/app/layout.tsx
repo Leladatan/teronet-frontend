@@ -1,4 +1,3 @@
-import type React from "react";
 import type {Metadata} from "next";
 import type {NextFont} from "next/dist/compiled/@next/font";
 

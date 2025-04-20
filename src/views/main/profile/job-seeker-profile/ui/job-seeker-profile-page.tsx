@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 
 import JobSeekerBasicInfoSection from "@/views/main/profile/job-seeker-profile/ui/components/job-seeker-basic-info-section";
-import JobSeekerDetailedInformationSection from "@/views/main/profile/job-seeker-profile/ui/components/job-seeker-detailed-information-section";
+import JobSeekerDetailedInformationSection from "@/views/main/profile/job-seeker-profile/ui/components/detailed-information/job-seeker-detailed-information-section";
 
 const JobSeekerProfilePage = () => {
     return (

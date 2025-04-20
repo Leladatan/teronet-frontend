@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import {routes} from "@/shared/const/routes";
 
 import Link from "next/link";
 import {Button} from "@/shared/components/ui/button";
@@ -30,7 +31,7 @@ const HomeNavigationCards = () => {
                         <p>Создайте профиль и свяжитесь с потенциальными работодателями</p>
                         <motion.div whileHover={{scale: 1.03}} whileTap={{scale: 0.97}}>
                             <Button asChild className="w-full">
-                                <Link href="/candidates">Просмотреть Вакансии</Link>
+                                <Link href={routes.vacancies.href}>Просмотреть Вакансии</Link>
                             </Button>
                         </motion.div>
                     </CardContent>
@@ -46,7 +47,7 @@ const HomeNavigationCards = () => {
                         <p>Найдите квалифицированных кандидатов на ваши позиции</p>
                         <motion.div whileHover={{scale: 1.03}} whileTap={{scale: 0.97}}>
                             <Button asChild className="w-full">
-                                <Link href="/employers">Просмотреть Кандидатов</Link>
+                                <Link href={routes.candidates.href}>Просмотреть Кандидатов</Link>
                             </Button>
                         </motion.div>
                     </CardContent>

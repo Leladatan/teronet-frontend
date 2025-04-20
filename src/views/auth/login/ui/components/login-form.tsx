@@ -1,7 +1,5 @@
 "use client";
 
-import type React from "react";
-
 import { motion } from "framer-motion";
 import {EyeIcon, EyeOffIcon, LockIcon, MailIcon} from "lucide-react";
 

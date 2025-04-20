@@ -1,12 +1,12 @@
 "use client";
 
-import {routes} from "@/shared/const/routes";
 import { motion } from "framer-motion";
+import { routes } from "@/shared/const/routes";
 
 import Link from "next/link";
-import {Switch} from "@/shared/components/ui/switch";
+import { Switch } from "@/shared/components/ui/switch";
 
-import {useState} from "react";
+import { useState } from "react";
 
 const HeaderLogo = () => {
     const [isHovered, setIsHovered] = useState<boolean>(false);
@@ -21,7 +21,11 @@ const HeaderLogo = () => {
             onMouseDown={() => setIsClicked(true)}
             onMouseUp={() => setIsClicked(false)}
         >
-            <motion.div className="flex items-center gap-2" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <motion.div
+                className="flex items-center gap-2"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+            >
                 <Switch
                     checked={true}
                     onCheckedChange={() => {}}
@@ -43,7 +47,10 @@ const HeaderLogo = () => {
                     >
                         BUSINESS
                     </motion.span>
-                    <motion.span className="text-[#333333] ml-2" animate={{ y: isHovered ? 2 : 0 }}>
+                    <motion.span
+                        className="text-[#333333] ml-2"
+                        animate={{ y: isHovered ? 2 : 0 }}
+                    >
                         PRACTICE
                     </motion.span>
                 </motion.h1>

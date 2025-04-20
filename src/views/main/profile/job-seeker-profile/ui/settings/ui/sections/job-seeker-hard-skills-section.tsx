@@ -1,6 +1,5 @@
 "use client";
 
-import type React from "react";
 import { PlusCircle, X } from "lucide-react";
 
 import { Label } from "@/shared/components/ui/label";

@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 
 import EmployerBasicInfoSection from "@/views/main/profile/employer-profile/ui/components/employer-basic-info-section";
-import EmployerDetailedInformationSection from "@/views/main/profile/employer-profile/ui/components/employer-detailed-information-section";
+import EmployerDetailedInformationSection from "@/views/main/profile/employer-profile/ui/components/detailed-information/employer-detailed-information-section";
 
 const EmployerProfilePage = () => {
     return (
@@ -16,7 +16,6 @@ const EmployerProfilePage = () => {
             <div className="flex flex-col md:flex-row gap-6 items-start">
                 {/* Left column - Avatar and basic info */}
                 <EmployerBasicInfoSection />
-
                 {/* Right column - Detailed information */}
                 <EmployerDetailedInformationSection />
             </div>
