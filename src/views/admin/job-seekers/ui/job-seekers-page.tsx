@@ -1,5 +1,5 @@
 import {jobSeekerColumns} from "@/views/admin/job-seekers/const";
-import {candidates} from "@/views/main/candidates/const";
+import {candidates} from "@/shared/mock";
 
 import DataTable from "@/widgets/table";
 

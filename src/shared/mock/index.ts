@@ -1,4 +1,5 @@
 import {JobSeeker} from "@/entities/job-seekers/types";
+import {Employee} from "@/entities/employers/types";
 
 export const candidates: JobSeeker[] = [
     {
@@ -73,4 +74,10 @@ export const candidates: JobSeeker[] = [
         softSkills: ["гибкость мышления", "целеустремленность", "работа под давлением"],
         hardSkills: ["архитектурное проектирование", "3D-моделирование", "AutoCAD", "Revit"],
     },
+];
+
+export const employees: Employee[] = [
+    { id: 1, firstName: "John", lastName: "Doe", age: 28 },
+    { id: 2, firstName: "Jane", lastName: "Smith", age: 34 },
+    { id: 3, firstName: "Alice", lastName: "Johnson", age: 45 },
 ];
