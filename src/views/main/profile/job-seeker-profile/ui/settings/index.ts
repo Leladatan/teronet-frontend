@@ -1,1 +1,0 @@
-export {default} from "./ui/job-seeker-profile-settings-page";
