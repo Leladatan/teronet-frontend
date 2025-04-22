@@ -11,7 +11,11 @@ export const jobSeekerColumns: ColumnDef<JobSeeker>[] = [
         header: "Имя",
     },
     {
-        accessorKey: "age",
-        header: "Возраст",
+        accessorKey: "email",
+        header: "Email",
+    },
+    {
+        accessorKey: "telegram",
+        header: "Telegram",
     },
 ];

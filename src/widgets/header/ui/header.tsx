@@ -7,13 +7,30 @@ import { Sheet, SheetContent, SheetTrigger } from "@/shared/components/ui/sheet"
 import HeaderLogo from "@/widgets/header/ui/components/header-logo";
 import HeaderAuthButtons from "@/widgets/header/ui/components/header-auth-buttons";
 
-import { useState } from "react";
+import {useEffect, useState} from "react";
 
 export const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+    const [isSticky, setIsSticky] = useState<boolean>(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsSticky(window.scrollY > 0);
+        };
+
+        window.addEventListener("scroll", handleScroll);
+
+        handleScroll();
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
 
     return (
-        <header className="border-b">
+        <header className={`border-b-2 bg-white z-50 transition-shadow ${
+            isSticky ? "sticky top-0 shadow-md" : ""
+        }`}>
             <div className="container mx-auto px-4 py-4 flex items-center justify-between">
                 <HeaderLogo />
 

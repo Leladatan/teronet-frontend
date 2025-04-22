@@ -19,7 +19,7 @@ const AdminMenu = () => {
 
     return (
         <>
-            <aside className="hidden md:flex w-64 flex-col border-r h-screen-70px">
+            <aside className="hidden md:flex w-64 flex-col border-r-2 h-screen-70px">
                 <ScrollArea className="flex-1 py-6">
                     <nav className="grid gap-1 px-2">
                         {navItems.map((item, index) => (
