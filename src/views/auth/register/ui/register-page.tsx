@@ -1,18 +1,17 @@
 "use client"
 
-import { motion } from "framer-motion";
-import {routes} from "@/shared/const/routes";
-import {BuildingIcon, UserIcon} from "lucide-react";
+import { motion } from "framer-motion"
+import { routes } from "@/shared/const/routes"
+import { BuildingIcon, UserIcon } from "lucide-react"
+import { useState } from "react"
 
-import {Button} from "@/shared/components/ui/button";
-import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "@/shared/components/ui/card";
+import { Button } from "@/shared/components/ui/button"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/shared/components/ui/card"
 
 import RegisterForm from "@/views/auth/register/ui/components/register-form";
 
-import {useState} from "react";
-
 const RegisterPage = () => {
-    const [userType, setUserType] = useState<"jobseeker" | "employer">("jobseeker");
+    const [userType, setUserType] = useState<"jobseeker" | "employer">("jobseeker")
 
     return (
         <section className="flex items-center justify-center min-h-screen bg-gradient-to-b from-slate-50 to-slate-100 p-4">
@@ -24,7 +23,7 @@ const RegisterPage = () => {
 
                 <div className="relative mt-6 mb-8">
                     <div className="absolute inset-0 flex items-center">
-                        <div className="w-full border-t border-muted"/>
+                        <div className="w-full border-t border-muted" />
                     </div>
                     <div className="relative flex justify-center">
                         <div className="bg-card flex items-center rounded-full border border-muted p-1">
@@ -33,13 +32,13 @@ const RegisterPage = () => {
                                 className={`relative rounded-full px-6 ${userType === "jobseeker" ? "" : "hover:bg-muted"}`}
                                 onClick={() => setUserType("jobseeker")}
                             >
-                                <UserIcon className="mr-2 h-4 w-4"/>
+                                <UserIcon className="mr-2 h-4 w-4" />
                                 Соискатель
                                 {userType === "jobseeker" && (
                                     <motion.div
                                         className="absolute inset-0 rounded-full bg-primary -z-10"
                                         layoutId="activeTab"
-                                        transition={{type: "spring", duration: 0.6}}
+                                        transition={{ type: "spring", duration: 0.6 }}
                                     />
                                 )}
                             </Button>
@@ -48,13 +47,13 @@ const RegisterPage = () => {
                                 className={`relative rounded-full px-6 ${userType === "employer" ? "" : "hover:bg-muted"}`}
                                 onClick={() => setUserType("employer")}
                             >
-                                <BuildingIcon className="mr-2 h-4 w-4"/>
+                                <BuildingIcon className="mr-2 h-4 w-4" />
                                 Работодатель
                                 {userType === "employer" && (
                                     <motion.div
                                         className="absolute inset-0 rounded-full bg-primary -z-10"
                                         layoutId="activeTab"
-                                        transition={{type: "spring", duration: 0.6}}
+                                        transition={{ type: "spring", duration: 0.6 }}
                                     />
                                 )}
                             </Button>
@@ -63,7 +62,7 @@ const RegisterPage = () => {
                 </div>
 
                 <CardContent>
-                    <RegisterForm userType={userType}/>
+                    <RegisterForm userType={userType} />
                 </CardContent>
 
                 <CardFooter className="flex justify-center pt-2 pb-6">
@@ -76,7 +75,7 @@ const RegisterPage = () => {
                 </CardFooter>
             </Card>
         </section>
-    );
-};
+    )
+}
 
-export default RegisterPage;
+export default RegisterPage
