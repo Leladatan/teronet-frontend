@@ -2,7 +2,9 @@
 
 import { z } from "zod"
 import { motion } from "framer-motion"
-import {loginContainerVariants, loginItemVariants} from "@/views/auth/login/const/motion";
+import { loginContainerVariants, loginItemVariants } from "@/views/auth/login/const/motion"
+
+import {authRequests} from "@/entities/auth";
 
 import { EyeIcon, EyeOffIcon, LockIcon, MailIcon } from "lucide-react"
 import Link from "next/link"
@@ -33,6 +35,7 @@ type FormValues = z.infer<typeof formSchema>
 const LoginForm = () => {
     const [showPassword, setShowPassword] = useState<boolean>(false)
     const [isLoading, setIsLoading] = useState<boolean>(false)
+    const [errorMessage, setErrorMessage] = useState<string | null>(null)
 
     const form = useForm<FormValues>({
         resolver: zodResolver(formSchema),
@@ -44,11 +47,17 @@ const LoginForm = () => {
 
     const onSubmit = (values: FormValues) => {
         setIsLoading(true)
+        setErrorMessage(null)
 
-        setTimeout(() => {
+        try {
+            const data = authRequests.login(values)
+
+            console.log("Успешный вход:", data)
+        } catch (error: any) {
+            setErrorMessage(error.message || "Ошибка при входе")
+        } finally {
             setIsLoading(false)
-            console.log("Login submitted", values)
-        }, 1500)
+        }
     }
 
     return (
@@ -116,6 +125,12 @@ const LoginForm = () => {
                         )}
                     />
                 </motion.div>
+
+                {errorMessage && (
+                    <motion.div variants={loginItemVariants} className="text-red-600 text-sm">
+                        {errorMessage}
+                    </motion.div>
+                )}
 
                 <motion.div variants={loginItemVariants}>
                     <Button type="button" className="w-full" disabled={isLoading} onClick={form.handleSubmit(onSubmit)}>
