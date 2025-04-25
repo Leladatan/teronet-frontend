@@ -1,12 +1,12 @@
-export interface AuthLogin {
+export type AuthLogin = {
   email: string;
   password: string;
-}
+};
 
-export interface AuthRegister {
+export type AuthRegister = {
   firstName: string;
   lastName: string;
   email: string;
   telegram: string;
   password: string;
-}
+};

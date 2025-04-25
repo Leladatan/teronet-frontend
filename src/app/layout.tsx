@@ -7,6 +7,7 @@ import { Inter } from "next/font/google";
 import Header from "@/widgets/header";
 import { Toaster } from "@/shared/components/ui/toaster";
 import ReactQueryProvider from "@/providers/query-provider";
+import { AuthMiddleware } from "@/shared/middleware/auth-middleware";
 
 const inter: NextFont = Inter({ subsets: ["latin"] });
 
@@ -55,11 +56,13 @@ const RootLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
   return (
     <html lang="ru">
       <body className={inter.className}>
-        <ReactQueryProvider>
-          <Header />
-          {children}
-          <Toaster />
-        </ReactQueryProvider>
+        <AuthMiddleware>
+          <ReactQueryProvider>
+            <Header />
+            {children}
+            <Toaster />
+          </ReactQueryProvider>
+        </AuthMiddleware>
       </body>
     </html>
   );

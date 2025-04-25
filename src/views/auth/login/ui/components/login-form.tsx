@@ -1,23 +1,16 @@
 "use client";
 
-import { useState } from "react";
+import type { ErrorResponse } from "@/entities/types";
+import type { User } from "@/entities/users/types";
+import type { LoginFormValues } from "@/views/auth/login/const/zod";
 
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useMutation } from "@tanstack/react-query";
 import { motion } from "framer-motion";
+import { authRequests } from "@/entities/auth";
+import { loginFormSchema } from "@/views/auth/login/const/zod";
+import { loginContainerVariants, loginItemVariants } from "@/views/auth/login/const/motion";
 
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-
 import { EyeIcon, EyeOffIcon, LockIcon, MailIcon } from "lucide-react";
-
-import { authRequests } from "@/entities/auth";
-
-import { ErrorResponse } from "@/entities/types";
-
-import { useToast } from "@/shared/hooks/use-toast";
-
 import { Button } from "@/shared/components/ui/button";
 import { Input } from "@/shared/components/ui/input";
 import {
@@ -29,11 +22,17 @@ import {
   FormMessage,
 } from "@/shared/components/ui/form";
 
-import { loginContainerVariants, loginItemVariants } from "@/views/auth/login/const/motion";
-import { loginFormSchema, LoginFormValues } from "@/views/auth/login/const/zod";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { useRouter } from "next/navigation";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useMutation } from "@tanstack/react-query";
+import { useToast } from "@/shared/hooks/use-toast";
+import { useUserStore } from "@/shared/store/user-store";
 
 const LoginForm = () => {
   const router = useRouter();
+  const { setUser } = useUserStore();
   const { toast } = useToast();
 
   const [showPassword, setShowPassword] = useState<boolean>(false);
@@ -48,12 +47,13 @@ const LoginForm = () => {
 
   const loginMutation = useMutation({
     mutationFn: (values: LoginFormValues) => authRequests.login(values),
-    onSuccess: () => {
+    onSuccess: ({ user }: { user: User }) => {
       toast({
         title: "Авторизация успешна",
         description: "Вы успешно авторизовались",
         variant: "default",
       });
+      setUser(user);
       router.push("/");
     },
     onError: (error: ErrorResponse) => {

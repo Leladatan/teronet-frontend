@@ -1,7 +1,7 @@
 import { AxiosError } from "axios";
 
-interface BackendErrorResponse {
+type BackendErrorResponse = {
   message: string;
-}
+};
 
 export type ErrorResponse = AxiosError<BackendErrorResponse>;

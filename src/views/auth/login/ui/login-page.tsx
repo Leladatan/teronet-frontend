@@ -1,11 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-
-import Link from "next/link";
-
 import { routes } from "@/shared/const/routes";
 
+import Link from "next/link";
 import {
   Card,
   CardContent,

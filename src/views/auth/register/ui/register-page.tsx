@@ -1,15 +1,12 @@
 "use client";
 
-import { useState } from "react";
-
-import Link from "next/link";
+import type { UserTypes } from "@/entities/users/types";
 
 import { motion } from "framer-motion";
-
-import { BuildingIcon, UserIcon } from "lucide-react";
-
 import { routes } from "@/shared/const/routes";
 
+import Link from "next/link";
+import { BuildingIcon, UserIcon } from "lucide-react";
 import { Button } from "@/shared/components/ui/button";
 import {
   Card,
@@ -22,8 +19,10 @@ import {
 
 import RegisterForm from "@/views/auth/register/ui/components/register-form";
 
+import { useState } from "react";
+
 const RegisterPage = () => {
-  const [userType, setUserType] = useState<"JOB_SEEKER" | "EMPLOYER">("JOB_SEEKER");
+  const [userType, setUserType] = useState<UserTypes>("JOB_SEEKER");
 
   return (
     <section className="flex items-center justify-center min-h-screen bg-gradient-to-b from-slate-50 to-slate-100 p-4">

@@ -8,7 +8,7 @@ import { Switch } from "@/shared/components/ui/switch";
 
 import { useState } from "react";
 
-const HeaderLogo = () => {
+const Logo = () => {
   const [isHovered, setIsHovered] = useState<boolean>(false);
   const [isClicked, setIsClicked] = useState<boolean>(false);
 
@@ -56,4 +56,4 @@ const HeaderLogo = () => {
   );
 };
 
-export default HeaderLogo;
+export default Logo;

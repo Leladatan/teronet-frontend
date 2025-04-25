@@ -1,19 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import type { ErrorResponse } from "@/entities/types";
+import type { UserTypes } from "@/entities/users/types";
+import type { RegisterFormValues } from "@/views/auth/register/const";
 
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useMutation } from "@tanstack/react-query";
 import { motion, AnimatePresence } from "framer-motion";
+import { authRequests } from "@/entities/auth";
+import { employerSchema, jobSeekerSchema } from "@/views/auth/register/const";
 
 import { EyeIcon, EyeOffIcon } from "lucide-react";
-
-import { authRequests } from "@/entities/auth";
-
-import { ErrorResponse } from "@/entities/types";
-import { useToast } from "@/shared/hooks/use-toast";
-
 import { Button } from "@/shared/components/ui/button";
 import { Input } from "@/shared/components/ui/input";
 import {
@@ -25,10 +20,14 @@ import {
   FormMessage,
 } from "@/shared/components/ui/form";
 
-import { employerSchema, jobSeekerSchema, RegisterFormValues } from "@/views/auth/register/const";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { useToast } from "@/shared/hooks/use-toast";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useMutation } from "@tanstack/react-query";
 
 interface Props {
-  userType: "JOB_SEEKER" | "EMPLOYER";
+  userType: UserTypes;
 }
 
 const RegisterForm = ({ userType }: Props) => {
