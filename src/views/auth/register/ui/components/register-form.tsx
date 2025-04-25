@@ -1,76 +1,85 @@
-"use client"
+"use client";
 
-import { motion, AnimatePresence } from "framer-motion"
-import { z } from "zod"
-import { useForm } from "react-hook-form"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useState } from "react"
+import { useState } from "react";
 
-import { Button } from "@/shared/components/ui/button"
-import { Input } from "@/shared/components/ui/input"
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/shared/components/ui/form"
-import { EyeIcon, EyeOffIcon } from "lucide-react"
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useMutation } from "@tanstack/react-query";
+import { motion, AnimatePresence } from "framer-motion";
 
-const baseSchema = z.object({
-    firstName: z.string().min(1, { message: "Имя обязательно" }),
-    lastName: z.string().min(1, { message: "Фамилия обязательна" }),
-    email: z.string().email({ message: "Введите корректный email адрес" }),
-    telegram: z.string().min(1, { message: "Telegram обязателен" }),
-    password: z
-        .string()
-        .min(6, { message: "Пароль должен содержать минимум 6 символов" })
-        .max(128, { message: "Пароль не должен превышать 128 символов" }),
-})
+import { EyeIcon, EyeOffIcon } from "lucide-react";
 
-const jobSeekerSchema = baseSchema.extend({
-    skills: z.string().optional(),
-})
+import { authRequests } from "@/entities/auth";
 
-const employerSchema = baseSchema.extend({
-    company: z.string().min(1, { message: "Название компании обязательно" }),
-})
+import { ErrorResponse } from "@/entities/types";
+import { useToast } from "@/shared/hooks/use-toast";
 
-type JobSeekerFormValues = z.infer<typeof jobSeekerSchema>
-type EmployerFormValues = z.infer<typeof employerSchema>
+import { Button } from "@/shared/components/ui/button";
+import { Input } from "@/shared/components/ui/input";
+import {
+    Form,
+    FormControl,
+    FormField,
+    FormItem,
+    FormLabel,
+    FormMessage,
+} from "@/shared/components/ui/form";
 
-type FormValues = JobSeekerFormValues | EmployerFormValues
+import {
+    employerSchema,
+    jobSeekerSchema,
+    RegisterFormValues,
+} from "@/views/auth/register/const";
 
 interface Props {
-    userType: "jobseeker" | "employer"
+    userType: "JOB_SEEKER" | "EMPLOYER";
 }
 
 const RegisterForm = ({ userType }: Props) => {
-    const [showPassword, setShowPassword] = useState<boolean>(false)
+    const { toast } = useToast();
 
-    const form = useForm<FormValues>({
-        resolver: zodResolver(userType === "jobseeker" ? jobSeekerSchema : employerSchema),
+    const [showPassword, setShowPassword] = useState<boolean>(false);
+
+    const form = useForm<RegisterFormValues>({
+        resolver: zodResolver(
+            userType === "JOB_SEEKER" ? jobSeekerSchema : employerSchema
+        ),
         defaultValues: {
             firstName: "",
             lastName: "",
             email: "",
             telegram: "",
             password: "",
-            ...(userType === "jobseeker" ? { skills: "" } : { company: "" }),
         },
         mode: "onChange",
-    })
+    });
 
-    const onSubmit = (data: FormValues) => {
+    const registerMutation = useMutation({
+        mutationFn: (values: RegisterFormValues) => authRequests.register(values),
+        onSuccess: () => {
+            toast({
+                title: "Регистрация успешна",
+                description: "Вы успешно зарегистрировались",
+                variant: "default",
+            });
+        },
+        onError: (error: ErrorResponse) => {
+            toast({
+                title: "Ошибка регистрации",
+                description: error.response?.data.message,
+                variant: "destructive",
+            });
+        },
+    });
+
+    const onSubmit = (data: RegisterFormValues) => {
         const submissionData = {
             ...data,
             type: userType,
-        }
+        };
 
-        console.log(`Submitted as ${userType}:`, submissionData)
-
-        if (userType === "jobseeker") {
-            const jobSeekerData = data as JobSeekerFormValues
-            console.log({ ...jobSeekerData, type: userType })
-        } else {
-            const employerData = data as EmployerFormValues
-            console.log({ ...employerData, type: userType })
-        }
-    }
+        registerMutation.mutate(submissionData);
+    };
 
     return (
         <Form {...form}>
@@ -175,61 +184,19 @@ const RegisterForm = ({ userType }: Props) => {
                                 </FormItem>
                             )}
                         />
-
-                        {userType === "jobseeker" && (
-                            <motion.div
-                                initial={{ opacity: 0, height: 0 }}
-                                animate={{ opacity: 1, height: "auto" }}
-                                exit={{ opacity: 0, height: 0 }}
-                                transition={{ duration: 0.3 }}
-                            >
-                                <FormField
-                                    control={form.control}
-                                    name="skills"
-                                    render={({ field }) => (
-                                        <FormItem className="space-y-2">
-                                            <FormLabel>Навыки</FormLabel>
-                                            <FormControl>
-                                                <Input placeholder="Ваши ключевые навыки" {...field} />
-                                            </FormControl>
-                                            <FormMessage />
-                                        </FormItem>
-                                    )}
-                                />
-                            </motion.div>
-                        )}
-
-                        {userType === "employer" && (
-                            <motion.div
-                                initial={{ opacity: 0, height: 0 }}
-                                animate={{ opacity: 1, height: "auto" }}
-                                exit={{ opacity: 0, height: 0 }}
-                                transition={{ duration: 0.3 }}
-                            >
-                                <FormField
-                                    control={form.control}
-                                    name="company"
-                                    render={({ field }) => (
-                                        <FormItem className="space-y-2">
-                                            <FormLabel>Компания</FormLabel>
-                                            <FormControl>
-                                                <Input placeholder="Название компании" {...field} />
-                                            </FormControl>
-                                            <FormMessage />
-                                        </FormItem>
-                                    )}
-                                />
-                            </motion.div>
-                        )}
                     </motion.div>
                 </AnimatePresence>
 
-                <Button type="submit" className="w-full mt-6">
-                    {userType === "jobseeker" ? "Зарегистрироваться как соискатель" : "Зарегистрироваться как работодатель"}
+                <Button type="submit" className="w-full mt-6" disabled={registerMutation.isPending}>
+                    {registerMutation.isPending
+                        ? "Регистрация..."
+                        : userType === "JOB_SEEKER"
+                            ? "Зарегистрироваться как соискатель"
+                            : "Зарегистрироваться как работодатель"}
                 </Button>
             </form>
         </Form>
-    )
-}
+    );
+};
 
-export default RegisterForm
+export default RegisterForm;

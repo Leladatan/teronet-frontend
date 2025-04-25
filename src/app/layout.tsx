@@ -5,6 +5,7 @@ import "./style/globals.css";
 import {Inter} from "next/font/google";
 
 import Header from "@/widgets/header";
+import {Toaster} from "@/shared/components/ui/toaster";
 import ReactQueryProvider from "@/providers/query-provider";
 
 const inter: NextFont = Inter({subsets: ["latin"]});
@@ -57,6 +58,7 @@ const RootLayout = ({children}: Readonly<{ children: React.ReactNode }>) => {
         <ReactQueryProvider>
             <Header/>
             {children}
+            <Toaster />
         </ReactQueryProvider>
         </body>
         </html>

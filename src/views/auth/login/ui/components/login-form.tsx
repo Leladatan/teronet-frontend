@@ -1,71 +1,85 @@
-"use client"
+"use client";
 
-import type {AxiosError} from "axios";
+import { useState } from "react";
 
-import { z } from "zod"
-import { motion } from "framer-motion"
-import { loginContainerVariants, loginItemVariants } from "@/views/auth/login/const/motion"
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useMutation } from "@tanstack/react-query";
+import { motion } from "framer-motion";
 
-import { authRequests } from "@/entities/auth"
+import Link from "next/link";
 
-import { EyeIcon, EyeOffIcon, LockIcon, MailIcon } from "lucide-react"
-import Link from "next/link"
-import { Button } from "@/shared/components/ui/button"
-import { Input } from "@/shared/components/ui/input"
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/shared/components/ui/form"
+import { EyeIcon, EyeOffIcon, LockIcon, MailIcon } from "lucide-react";
 
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useState } from "react"
-import { useForm } from "react-hook-form"
-import { useMutation } from "@tanstack/react-query"
+import { authRequests } from "@/entities/auth";
 
-const formSchema = z.object({
-    email: z.string().email({
-        message: "Пожалуйста, введите корректный email адрес",
-    }),
-    password: z
-        .string()
-        .min(6, {
-            message: "Пароль должен содержать минимум 6 символов",
-        })
-        .max(128, {
-            message: "Пароль не должен превышать 128 символов",
-        }),
-})
+import { ErrorResponse } from "@/entities/types";
 
-type FormValues = z.infer<typeof formSchema>
+import { useToast } from "@/shared/hooks/use-toast";
+
+import { Button } from "@/shared/components/ui/button";
+import { Input } from "@/shared/components/ui/input";
+import {
+    Form,
+    FormControl,
+    FormField,
+    FormItem,
+    FormLabel,
+    FormMessage,
+} from "@/shared/components/ui/form";
+
+import {
+    loginContainerVariants,
+    loginItemVariants,
+} from "@/views/auth/login/const/motion";
+import {
+    loginFormSchema,
+    LoginFormValues,
+} from "@/views/auth/login/const/zod";
 
 const LoginForm = () => {
-    const [showPassword, setShowPassword] = useState<boolean>(false)
-    const [errorMessage, setErrorMessage] = useState<string | null>(null)
+    const { toast } = useToast();
 
-    const form = useForm<FormValues>({
-        resolver: zodResolver(formSchema),
+    const [showPassword, setShowPassword] = useState<boolean>(false);
+
+    const form = useForm<LoginFormValues>({
+        resolver: zodResolver(loginFormSchema),
         defaultValues: {
             email: "",
             password: "",
         },
-    })
+    });
 
     const loginMutation = useMutation({
-        mutationFn: (values: FormValues) => authRequests.login(values),
-        onSuccess: (data) => {
-            console.log("Успешный вход:", data)
-            setErrorMessage(null)
+        mutationFn: (values: LoginFormValues) => authRequests.login(values),
+        onSuccess: () => {
+            toast({
+                title: "Авторизация успешна",
+                description: "Вы успешно авторизовались",
+                variant: "default",
+            });
         },
-        onError: (error: AxiosError) => {
-            console.log(error);
-            setErrorMessage(error.message || "Ошибка при входе")
+        onError: (error: ErrorResponse) => {
+            toast({
+                title: "Ошибка авторизации",
+                description: error.response?.data.message,
+                variant: "destructive",
+            });
         },
-    })
+    });
 
-    const onSubmit = (values: FormValues) => {
-        loginMutation.mutate(values)
-    }
+    const onSubmit = (values: LoginFormValues) => {
+        loginMutation.mutate(values);
+    };
 
     return (
         <Form {...form}>
-            <motion.div className="space-y-6" variants={loginContainerVariants} initial="hidden" animate="visible">
+            <motion.div
+                className="space-y-6"
+                variants={loginContainerVariants}
+                initial="hidden"
+                animate="visible"
+            >
                 <motion.div variants={loginItemVariants}>
                     <FormField
                         control={form.control}
@@ -129,12 +143,6 @@ const LoginForm = () => {
                     />
                 </motion.div>
 
-                {errorMessage && (
-                    <motion.div variants={loginItemVariants} className="text-red-600 text-sm">
-                        {errorMessage}
-                    </motion.div>
-                )}
-
                 <motion.div variants={loginItemVariants}>
                     <Button
                         type="button"
@@ -154,7 +162,7 @@ const LoginForm = () => {
                 </motion.div>
             </motion.div>
         </Form>
-    )
-}
+    );
+};
 
-export default LoginForm
+export default LoginForm;
