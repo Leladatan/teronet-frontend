@@ -29,7 +29,7 @@ const HeaderLogo = () => {
         <Switch
           checked={true}
           onCheckedChange={() => {}}
-          className="data-[state=checked]:bg-[#39A9F4] data-[state=checked]:border-[#39A9F4]"
+          className="hidden md:block data-[state=checked]:bg-[#39A9F4] data-[state=checked]:border-[#39A9F4]"
         />
 
         <motion.h1

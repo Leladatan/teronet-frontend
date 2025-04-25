@@ -1,28 +1,16 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { routes } from "@/shared/const/routes";
-
-import Link from "next/link";
-import { Button } from "@/shared/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/shared/components/ui/card";
+import { Button } from "@/shared/components/ui/button";
+import Link from "next/link";
+import { routes } from "@/shared/const/routes";
+import { homeFindTeamCardVariants } from "@/views/main/home/ui/components/find-team-section/const/motion";
 
-const HomeNavigationCards = () => {
-  const cardVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: (i: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        delay: 0.3 + i * 0.2,
-        duration: 0.5,
-      },
-    }),
-  };
-
+const FindTeamMain = () => {
   return (
     <div className="grid md:grid-cols-2 gap-8">
-      <motion.div custom={0} initial="hidden" animate="visible" variants={cardVariants}>
+      <motion.div custom={0} initial="hidden" animate="visible" variants={homeFindTeamCardVariants}>
         <Card>
           <CardHeader>
             <CardTitle>Для Соискателей</CardTitle>
@@ -38,7 +26,7 @@ const HomeNavigationCards = () => {
         </Card>
       </motion.div>
 
-      <motion.div custom={1} initial="hidden" animate="visible" variants={cardVariants}>
+      <motion.div custom={1} initial="hidden" animate="visible" variants={homeFindTeamCardVariants}>
         <Card>
           <CardHeader>
             <CardTitle>Для Работодателей</CardTitle>
@@ -57,4 +45,4 @@ const HomeNavigationCards = () => {
   );
 };
 
-export default HomeNavigationCards;
+export default FindTeamMain;

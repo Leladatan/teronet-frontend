@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-const HomeTitle = () => {
+const FindTeamTitle = () => {
   return (
     <motion.div
       className="text-center space-y-4"
@@ -30,4 +30,4 @@ const HomeTitle = () => {
   );
 };
 
-export default HomeTitle;
+export default FindTeamTitle;

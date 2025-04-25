@@ -1,5 +1,5 @@
-import HeroMain from "@/views/main/candidates/ui/components/hero-section/components/hero-main";
-import HeroAnimation from "@/views/main/candidates/ui/components/hero-section/components/hero-animation";
+import HeroMain from "@/views/candidaes-vacancies/candidates/ui/components/hero-section/components/hero-main";
+import HeroAnimation from "@/views/candidaes-vacancies/candidates/ui/components/hero-section/components/hero-animation";
 
 const HeroSection = () => {
   return (
