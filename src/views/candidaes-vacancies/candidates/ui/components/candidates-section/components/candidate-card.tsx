@@ -1,12 +1,20 @@
 "use client";
 
-import { JobSeeker } from "@/entities/job-seekers/types";
-
 import { motion } from "framer-motion";
 
 import { Mail, MessageCircle } from "lucide-react";
 import { Badge } from "@/shared/components/ui/badge";
 import { Card, CardContent, CardHeader } from "@/shared/components/ui/card";
+
+interface JobSeeker {
+  id: number;
+  firstName: string;
+  lastName: string;
+  email: string;
+  telegram: string;
+  softSkills: string[];
+  hardSkills: string[];
+}
 
 interface Props {
   candidate: JobSeeker;

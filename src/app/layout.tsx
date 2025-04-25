@@ -4,10 +4,11 @@ import type { NextFont } from "next/dist/compiled/@next/font";
 import "./style/globals.css";
 import { Inter } from "next/font/google";
 
-import Header from "@/widgets/header";
-import { Toaster } from "@/shared/components/ui/toaster";
-import ReactQueryProvider from "@/providers/query-provider";
 import { AuthMiddleware } from "@/shared/middleware/auth-middleware";
+import QueryProvider from "@/shared/provider/query-provider";
+import { Toaster } from "@/shared/components/ui/toaster";
+
+import Header from "@/widgets/header";
 
 const inter: NextFont = Inter({ subsets: ["latin"] });
 
@@ -57,11 +58,11 @@ const RootLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
     <html lang="ru">
       <body className={inter.className}>
         <AuthMiddleware>
-          <ReactQueryProvider>
+          <QueryProvider>
             <Header />
             {children}
             <Toaster />
-          </ReactQueryProvider>
+          </QueryProvider>
         </AuthMiddleware>
       </body>
     </html>

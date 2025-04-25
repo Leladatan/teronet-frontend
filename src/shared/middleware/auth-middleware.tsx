@@ -24,7 +24,7 @@ export const AuthMiddleware = ({ children }: { children: React.ReactNode }) => {
     const isPublicRoute = publicRoutes.some((route) => pathname.startsWith(route));
     const isAdminRoute = adminRoutes.some((route) => pathname.startsWith(route));
 
-    if (!isAuthenticated && !isPublicRoute) {
+    if (!isAuthenticated && (!isPublicRoute || isAdminRoute)) {
       router.push("/login");
       return;
     }
@@ -33,7 +33,7 @@ export const AuthMiddleware = ({ children }: { children: React.ReactNode }) => {
       router.push("/");
       return;
     }
-  }, [isAuthenticated, pathname, router, isLoading, user?.role]);
+  }, [isAuthenticated, pathname, router, isLoading, user, user?.role]);
 
   if (isLoading) {
     return <Loader />;

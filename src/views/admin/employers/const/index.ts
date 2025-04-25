@@ -1,7 +1,7 @@
 import { ColumnDef } from "@tanstack/react-table";
-import { Employee } from "@/entities/employers/types";
+import { User } from "@/entities/users/types";
 
-export const employeeColumns: ColumnDef<Employee>[] = [
+export const employeeColumns: ColumnDef<User>[] = [
   {
     accessorKey: "lastName",
     header: "Фамилия",
@@ -11,7 +11,11 @@ export const employeeColumns: ColumnDef<Employee>[] = [
     header: "Имя",
   },
   {
-    accessorKey: "age",
-    header: "Возраст",
+    accessorKey: "email",
+    header: "Email",
+  },
+  {
+    accessorKey: "telegram",
+    header: "Telegram",
   },
 ];

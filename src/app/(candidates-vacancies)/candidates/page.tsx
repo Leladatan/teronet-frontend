@@ -1,4 +1,4 @@
-import CandidatesPage from "../../../views/candidaes-vacancies/candidates";
+import CandidatesPage from "@/views/candidaes-vacancies/candidates";
 
 const Page = () => {
   return <CandidatesPage />;
