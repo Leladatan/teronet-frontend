@@ -29,11 +29,13 @@
     "@radix-ui/react-toast": "^1.2.11",
     "@tanstack/react-query": "^5.74.4",
     "@tanstack/react-table": "^8.21.3",
+    "@types/js-cookie": "^3.0.6",
     "axios": "^1.8.4",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "1.0.0",
     "framer-motion": "^12.4.7",
+    "js-cookie": "^3.0.5",
     "lucide-react": "^0.476.0",
     "next": "15.2.4",
     "react": "^19.0.0",
@@ -41,7 +43,8 @@
     "react-hook-form": "^7.54.2",
     "tailwind-merge": "^3.0.2",
     "tailwindcss-animate": "^1.0.7",
-    "zod": "^3.24.3"
+    "zod": "^3.24.3",
+    "zustand": "^5.0.3"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",

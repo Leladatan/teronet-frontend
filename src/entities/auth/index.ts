@@ -5,4 +5,6 @@ import { api } from "@/entities";
 export const authRequests = {
   login: async (data: AuthLogin) => await api.post("/auth/login", data).then((res) => res.data),
   register: async (data: AuthRegister) => await api.post("/auth/register", data),
+  me: async () => await api.post("/auth/me"),
+  logout: async () => await api.post("/auth/logout"),
 };
