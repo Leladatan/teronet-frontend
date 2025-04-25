@@ -8,6 +8,7 @@ import { useMutation } from "@tanstack/react-query";
 import { motion } from "framer-motion";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 import { EyeIcon, EyeOffIcon, LockIcon, MailIcon } from "lucide-react";
 
@@ -32,6 +33,7 @@ import { loginContainerVariants, loginItemVariants } from "@/views/auth/login/co
 import { loginFormSchema, LoginFormValues } from "@/views/auth/login/const/zod";
 
 const LoginForm = () => {
+  const router = useRouter();
   const { toast } = useToast();
 
   const [showPassword, setShowPassword] = useState<boolean>(false);
@@ -52,6 +54,7 @@ const LoginForm = () => {
         description: "Вы успешно авторизовались",
         variant: "default",
       });
+      router.push("/");
     },
     onError: (error: ErrorResponse) => {
       toast({
