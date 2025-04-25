@@ -1,4 +1,4 @@
-import EmployersPage from '@/views/admin/employers';
+import EmployersPage from "@/views/admin/employers";
 
 const Page = () => {
   return <EmployersPage />;

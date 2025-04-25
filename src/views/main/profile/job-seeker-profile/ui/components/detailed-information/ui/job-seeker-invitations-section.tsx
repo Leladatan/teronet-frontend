@@ -1,17 +1,17 @@
-import { motion } from 'framer-motion';
-import { invitations } from '@/views/main/profile/job-seeker-profile/const';
-import { jobSeekerCardVariants } from '@/views/main/profile/job-seeker-profile/const/motion';
+import { motion } from "framer-motion";
+import { invitations } from "@/views/main/profile/job-seeker-profile/const";
+import { jobSeekerCardVariants } from "@/views/main/profile/job-seeker-profile/const/motion";
 
-import { Briefcase, Building, Calendar } from 'lucide-react';
-import { Button } from '@/shared/components/ui/button';
-import { MotionCard } from '@/shared/const/motion';
+import { Briefcase, Building, Calendar } from "lucide-react";
+import { Button } from "@/shared/components/ui/button";
+import { MotionCard } from "@/shared/const/motion";
 import {
   CardContent,
   CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
-} from '@/shared/components/ui/card';
+} from "@/shared/components/ui/card";
 
 const JobSeekerInvitationsSection = () => {
   return (
@@ -39,7 +39,7 @@ const JobSeekerInvitationsSection = () => {
                     className="h-10 w-10 rounded-md overflow-hidden bg-secondary flex items-center justify-center"
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
-                    transition={{ type: 'spring', stiffness: 500, delay: index * 0.1 + 0.2 }}
+                    transition={{ type: "spring", stiffness: 500, delay: index * 0.1 + 0.2 }}
                   >
                     <Building className="h-6 w-6 text-muted-foreground" />
                   </motion.div>

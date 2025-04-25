@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { candidates } from '@/shared/mock';
+import { motion } from "framer-motion";
+import { candidates } from "@/shared/mock";
 
-import CandidateCard from '@/views/main/candidates/ui/components/candidates-section/components/candidate-card';
+import CandidateCard from "@/views/main/candidates/ui/components/candidates-section/components/candidate-card";
 
 const CandidatesSection = () => {
   return (

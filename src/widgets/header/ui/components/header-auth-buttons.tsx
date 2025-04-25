@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { routes } from '@/shared/const/routes';
+import { routes } from "@/shared/const/routes";
 
-import Link from 'next/link';
-import { Button } from '@/shared/components/ui/button';
+import Link from "next/link";
+import { Button } from "@/shared/components/ui/button";
 
 const HeaderAuthButtons = () => {
   return (

@@ -1,14 +1,14 @@
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 import {
   employerCardVariants,
   employerListItemVariants,
-} from '@/views/main/profile/employer-profile/const/motion';
-import { employer } from '@/views/main/profile/employer-profile/const';
+} from "@/views/main/profile/employer-profile/const/motion";
+import { employer } from "@/views/main/profile/employer-profile/const";
 
-import { CheckCircle } from 'lucide-react';
-import { Badge } from '@/shared/components/ui/badge';
-import { MotionCard } from '@/shared/const/motion';
-import { CardContent, CardDescription, CardHeader, CardTitle } from '@/shared/components/ui/card';
+import { CheckCircle } from "lucide-react";
+import { Badge } from "@/shared/components/ui/badge";
+import { MotionCard } from "@/shared/const/motion";
+import { CardContent, CardDescription, CardHeader, CardTitle } from "@/shared/components/ui/card";
 
 const EmployerRequirementsSection = () => {
   return (
@@ -55,7 +55,7 @@ const EmployerRequirementsSection = () => {
                 key={index}
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: index * 0.05, type: 'spring' }}
+                transition={{ delay: index * 0.05, type: "spring" }}
               >
                 <Badge variant="secondary" className="px-3 py-1">
                   {type}

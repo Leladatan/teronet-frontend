@@ -1,18 +1,18 @@
-'use client';
+"use client";
 
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from "framer-motion";
 
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/shared/components/ui/tabs';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/shared/components/ui/tabs";
 
-import JobSeekerPortfolioSection from '@/views/main/profile/job-seeker-profile/ui/components/detailed-information/ui/job-seeker-portfolio-section';
-import JobSeekerAvailabilitySection from '@/views/main/profile/job-seeker-profile/ui/components/detailed-information/ui/job-seeker-availability-section';
-import JobSeekerSkillsSection from '@/views/main/profile/job-seeker-profile/ui/components/detailed-information/ui/job-seeker-skills-section';
-import JobSeekerInvitationsSection from '@/views/main/profile/job-seeker-profile/ui/components/detailed-information/ui/job-seeker-invitations-section';
+import JobSeekerPortfolioSection from "@/views/main/profile/job-seeker-profile/ui/components/detailed-information/ui/job-seeker-portfolio-section";
+import JobSeekerAvailabilitySection from "@/views/main/profile/job-seeker-profile/ui/components/detailed-information/ui/job-seeker-availability-section";
+import JobSeekerSkillsSection from "@/views/main/profile/job-seeker-profile/ui/components/detailed-information/ui/job-seeker-skills-section";
+import JobSeekerInvitationsSection from "@/views/main/profile/job-seeker-profile/ui/components/detailed-information/ui/job-seeker-invitations-section";
 
-import { useState } from 'react';
+import { useState } from "react";
 
 const JobSeekerDetailedInformationSection = () => {
-  const [activeTab, setActiveTab] = useState('portfolio');
+  const [activeTab, setActiveTab] = useState("portfolio");
 
   return (
     <div className="w-full md:w-2/3">

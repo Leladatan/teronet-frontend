@@ -1,13 +1,13 @@
-import { motion } from 'framer-motion';
-import { jobSeeker } from '@/views/main/profile/job-seeker-profile/const';
+import { motion } from "framer-motion";
+import { jobSeeker } from "@/views/main/profile/job-seeker-profile/const";
 import {
   jobSeekerCardVariants,
   jobSeekerListItemVariants,
-} from '@/views/main/profile/job-seeker-profile/const/motion';
+} from "@/views/main/profile/job-seeker-profile/const/motion";
 
-import { CheckCircle } from 'lucide-react';
-import { MotionCard } from '@/shared/const/motion';
-import { CardContent, CardDescription, CardHeader, CardTitle } from '@/shared/components/ui/card';
+import { CheckCircle } from "lucide-react";
+import { MotionCard } from "@/shared/const/motion";
+import { CardContent, CardDescription, CardHeader, CardTitle } from "@/shared/components/ui/card";
 
 const JobSeekerAvailabilitySection = () => {
   return (
@@ -30,7 +30,7 @@ const JobSeekerAvailabilitySection = () => {
               <motion.div
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
-                transition={{ delay: index * 0.1 + 0.2, type: 'spring' }}
+                transition={{ delay: index * 0.1 + 0.2, type: "spring" }}
               >
                 <CheckCircle className="h-5 w-5 text-primary" />
               </motion.div>

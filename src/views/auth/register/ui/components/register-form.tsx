@@ -1,21 +1,21 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
+import { useState } from "react";
 
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useMutation } from '@tanstack/react-query';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useMutation } from "@tanstack/react-query";
+import { motion, AnimatePresence } from "framer-motion";
 
-import { EyeIcon, EyeOffIcon } from 'lucide-react';
+import { EyeIcon, EyeOffIcon } from "lucide-react";
 
-import { authRequests } from '@/entities/auth';
+import { authRequests } from "@/entities/auth";
 
-import { ErrorResponse } from '@/entities/types';
-import { useToast } from '@/shared/hooks/use-toast';
+import { ErrorResponse } from "@/entities/types";
+import { useToast } from "@/shared/hooks/use-toast";
 
-import { Button } from '@/shared/components/ui/button';
-import { Input } from '@/shared/components/ui/input';
+import { Button } from "@/shared/components/ui/button";
+import { Input } from "@/shared/components/ui/input";
 import {
   Form,
   FormControl,
@@ -23,12 +23,12 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/shared/components/ui/form';
+} from "@/shared/components/ui/form";
 
-import { employerSchema, jobSeekerSchema, RegisterFormValues } from '@/views/auth/register/const';
+import { employerSchema, jobSeekerSchema, RegisterFormValues } from "@/views/auth/register/const";
 
 interface Props {
-  userType: 'JOB_SEEKER' | 'EMPLOYER';
+  userType: "JOB_SEEKER" | "EMPLOYER";
 }
 
 const RegisterForm = ({ userType }: Props) => {
@@ -37,31 +37,31 @@ const RegisterForm = ({ userType }: Props) => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
 
   const form = useForm<RegisterFormValues>({
-    resolver: zodResolver(userType === 'JOB_SEEKER' ? jobSeekerSchema : employerSchema),
+    resolver: zodResolver(userType === "JOB_SEEKER" ? jobSeekerSchema : employerSchema),
     defaultValues: {
-      firstName: '',
-      lastName: '',
-      email: '',
-      telegram: '',
-      password: '',
+      firstName: "",
+      lastName: "",
+      email: "",
+      telegram: "",
+      password: "",
     },
-    mode: 'onChange',
+    mode: "onChange",
   });
 
   const registerMutation = useMutation({
     mutationFn: (values: RegisterFormValues) => authRequests.register(values),
     onSuccess: () => {
       toast({
-        title: 'Регистрация успешна',
-        description: 'Вы успешно зарегистрировались',
-        variant: 'default',
+        title: "Регистрация успешна",
+        description: "Вы успешно зарегистрировались",
+        variant: "default",
       });
     },
     onError: (error: ErrorResponse) => {
       toast({
-        title: 'Ошибка регистрации',
+        title: "Ошибка регистрации",
         description: error.response?.data.message,
-        variant: 'destructive',
+        variant: "destructive",
       });
     },
   });
@@ -154,7 +154,7 @@ const RegisterForm = ({ userType }: Props) => {
                   <FormControl>
                     <div className="relative">
                       <Input
-                        type={showPassword ? 'text' : 'password'}
+                        type={showPassword ? "text" : "password"}
                         placeholder="Введите пароль"
                         {...field}
                         className="pr-10"
@@ -183,10 +183,10 @@ const RegisterForm = ({ userType }: Props) => {
 
         <Button type="submit" className="w-full mt-6" disabled={registerMutation.isPending}>
           {registerMutation.isPending
-            ? 'Регистрация...'
-            : userType === 'JOB_SEEKER'
-              ? 'Зарегистрироваться как соискатель'
-              : 'Зарегистрироваться как работодатель'}
+            ? "Регистрация..."
+            : userType === "JOB_SEEKER"
+              ? "Зарегистрироваться как соискатель"
+              : "Зарегистрироваться как работодатель"}
         </Button>
       </form>
     </Form>

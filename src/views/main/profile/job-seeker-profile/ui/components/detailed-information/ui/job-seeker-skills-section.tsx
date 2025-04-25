@@ -1,13 +1,13 @@
-import { motion } from 'framer-motion';
-import { jobSeeker } from '@/views/main/profile/job-seeker-profile/const';
+import { motion } from "framer-motion";
+import { jobSeeker } from "@/views/main/profile/job-seeker-profile/const";
 import {
   jobSeekerCardVariants,
   jobSeekerListItemVariants,
-} from '@/views/main/profile/job-seeker-profile/const/motion';
+} from "@/views/main/profile/job-seeker-profile/const/motion";
 
-import { CheckCircle } from 'lucide-react';
-import { MotionBadge, MotionCard } from '@/shared/const/motion';
-import { CardContent, CardHeader, CardTitle } from '@/shared/components/ui/card';
+import { CheckCircle } from "lucide-react";
+import { MotionBadge, MotionCard } from "@/shared/const/motion";
+import { CardContent, CardHeader, CardTitle } from "@/shared/components/ui/card";
 
 const JobSeekerSkillsSection = () => {
   return (
@@ -56,7 +56,7 @@ const JobSeekerSkillsSection = () => {
                 animate={{
                   opacity: 1,
                   scale: 1,
-                  transition: { delay: index * 0.05, type: 'spring' },
+                  transition: { delay: index * 0.05, type: "spring" },
                 }}
               >
                 {skill}

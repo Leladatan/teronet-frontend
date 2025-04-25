@@ -1,13 +1,13 @@
-import { motion } from 'framer-motion';
-import { jobSeeker } from '@/views/main/profile/job-seeker-profile/const';
+import { motion } from "framer-motion";
+import { jobSeeker } from "@/views/main/profile/job-seeker-profile/const";
 import {
   jobSeekerBadgeVariants,
   jobSeekerCardVariants,
-} from '@/views/main/profile/job-seeker-profile/const/motion';
+} from "@/views/main/profile/job-seeker-profile/const/motion";
 
-import { LinkIcon } from 'lucide-react';
-import { MotionBadge, MotionCard } from '@/shared/const/motion';
-import { CardContent, CardDescription, CardHeader, CardTitle } from '@/shared/components/ui/card';
+import { LinkIcon } from "lucide-react";
+import { MotionBadge, MotionCard } from "@/shared/const/motion";
+import { CardContent, CardDescription, CardHeader, CardTitle } from "@/shared/components/ui/card";
 
 const JobSeekerPortfolioSection = () => {
   return (

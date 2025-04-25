@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
-import { Card } from '@/shared/components/ui/card';
-import { Badge } from '@/shared/components/ui/badge';
+import { Card } from "@/shared/components/ui/card";
+import { Badge } from "@/shared/components/ui/badge";
 
 type UserCard = {
-  type: 'seeker' | 'employer';
+  type: "seeker" | "employer";
   name: string;
   tags: string[];
   company?: string;
@@ -15,16 +15,16 @@ type UserCard = {
 
 const demoCards: UserCard[] = [
   {
-    type: 'seeker',
-    name: 'Алекс К.',
-    tags: ['Дизайн UI/UX', 'Дизайн Продукта', 'Figma'],
+    type: "seeker",
+    name: "Алекс К.",
+    tags: ["Дизайн UI/UX", "Дизайн Продукта", "Figma"],
   },
   {
-    type: 'employer',
-    name: 'Технологические Решения',
-    company: 'Технологические Решения Инк',
-    field: 'Разработка Программного Обеспечения',
-    tags: ['ИТ', 'Программное Обеспечение'],
+    type: "employer",
+    name: "Технологические Решения",
+    company: "Технологические Решения Инк",
+    field: "Разработка Программного Обеспечения",
+    tags: ["ИТ", "Программное Обеспечение"],
   },
 ];
 
@@ -58,9 +58,9 @@ const HomeUserCards = () => {
             className="h-full"
             whileHover={{
               scale: 1.03,
-              boxShadow: '0px 5px 15px rgba(0, 0, 0, 0.1)',
+              boxShadow: "0px 5px 15px rgba(0, 0, 0, 0.1)",
             }}
-            transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+            transition={{ type: "spring", stiffness: 400, damping: 17 }}
           >
             <Card className="p-6 h-full flex flex-col">
               <div className="mb-4 flex items-start justify-between">
@@ -68,8 +68,8 @@ const HomeUserCards = () => {
                   <h3 className="font-semibold">{card.name}</h3>
                   {card.company && <p className="text-sm text-muted-foreground">{card.field}</p>}
                 </div>
-                <Badge variant={card.type === 'seeker' ? 'secondary' : 'outline'}>
-                  {card.type === 'seeker' ? 'Соискатель Работы' : 'Работодатель'}
+                <Badge variant={card.type === "seeker" ? "secondary" : "outline"}>
+                  {card.type === "seeker" ? "Соискатель Работы" : "Работодатель"}
                 </Badge>
               </div>
               <div className="flex flex-wrap gap-2 mt-auto">

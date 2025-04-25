@@ -1,7 +1,7 @@
-import { jobSeekerColumns } from '@/views/admin/job-seekers/const';
-import { candidates } from '@/shared/mock';
+import { jobSeekerColumns } from "@/views/admin/job-seekers/const";
+import { candidates } from "@/shared/mock";
 
-import DataTable from '@/widgets/table';
+import DataTable from "@/widgets/table";
 
 const JobSeekersPage = () => {
   return (

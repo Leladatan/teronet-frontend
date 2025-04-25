@@ -1,14 +1,14 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { employer } from '@/views/main/profile/employer-profile/const';
+import { motion } from "framer-motion";
+import { employer } from "@/views/main/profile/employer-profile/const";
 
-import { Building2, Clock } from 'lucide-react';
+import { Building2, Clock } from "lucide-react";
 
-import { Badge } from '@/shared/components/ui/badge';
-import { MotionAvatar, MotionCard } from '@/shared/const/motion';
-import { AvatarFallback, AvatarImage } from '@/shared/components/ui/avatar';
-import { CardContent, CardDescription, CardHeader, CardTitle } from '@/shared/components/ui/card';
+import { Badge } from "@/shared/components/ui/badge";
+import { MotionAvatar, MotionCard } from "@/shared/const/motion";
+import { AvatarFallback, AvatarImage } from "@/shared/components/ui/avatar";
+import { CardContent, CardDescription, CardHeader, CardTitle } from "@/shared/components/ui/card";
 
 const EmployerBasicInfoSection = () => {
   return (
@@ -17,7 +17,7 @@ const EmployerBasicInfoSection = () => {
         className="w-32 h-32 border-4 border-primary/10"
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
-        transition={{ type: 'spring', stiffness: 260, damping: 20 }}
+        transition={{ type: "spring", stiffness: 260, damping: 20 }}
       >
         <AvatarImage src="/placeholder.svg?height=128&width=128" alt={employer.legalName} />
         <AvatarFallback className="text-3xl bg-primary/10">

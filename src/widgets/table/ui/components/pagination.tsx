@@ -1,6 +1,6 @@
-import { Table } from '@tanstack/table-core';
+import { Table } from "@tanstack/table-core";
 
-import { Button } from '@/shared/components/ui/button';
+import { Button } from "@/shared/components/ui/button";
 
 interface Props<TData> {
   table: Table<TData>;
@@ -53,7 +53,7 @@ const Pagination = <TData extends object>({
         <ul className="flex space-x-1">
           {pageNumbers.map((pageNum, idx) =>
             pageNum === -1 ? (
-              <li key={'dots-' + idx} className="flex items-center px-2 select-none">
+              <li key={"dots-" + idx} className="flex items-center px-2 select-none">
                 ...
               </li>
             ) : (
@@ -62,10 +62,10 @@ const Pagination = <TData extends object>({
                   onClick={() => table.setPageIndex(pageNum - 1)}
                   className={`px-3 py-1 rounded-md text-sm font-medium ${
                     pageNum === pageIndex
-                      ? 'bg-blue-600 text-white'
-                      : 'hover:bg-blue-100 text-gray-700'
+                      ? "bg-blue-600 text-white"
+                      : "hover:bg-blue-100 text-gray-700"
                   }`}
-                  aria-current={pageNum === pageIndex ? 'page' : undefined}
+                  aria-current={pageNum === pageIndex ? "page" : undefined}
                   aria-label={`Страница ${pageNum}`}
                 >
                   {pageNum}

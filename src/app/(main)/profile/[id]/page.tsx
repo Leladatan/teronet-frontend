@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import JobSeekerProfilePage from '@/views/main/profile/job-seeker-profile';
-import EmployerProfilePage from '@/views/main/profile/employer-profile';
+import JobSeekerProfilePage from "@/views/main/profile/job-seeker-profile";
+import EmployerProfilePage from "@/views/main/profile/employer-profile";
 
-import { useParams } from 'next/navigation';
+import { useParams } from "next/navigation";
 
 const Page = () => {
   const { id } = useParams();

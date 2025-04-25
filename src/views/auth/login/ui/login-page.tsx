@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
-import Link from 'next/link';
+import Link from "next/link";
 
-import { routes } from '@/shared/const/routes';
+import { routes } from "@/shared/const/routes";
 
 import {
   Card,
@@ -13,9 +13,9 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from '@/shared/components/ui/card';
+} from "@/shared/components/ui/card";
 
-import LoginForm from '@/views/auth/login/ui/components/login-form';
+import LoginForm from "@/views/auth/login/ui/components/login-form";
 
 const LoginPage = () => {
   return (
@@ -45,7 +45,7 @@ const LoginPage = () => {
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.7, duration: 0.5 }}
           >
-            Нет аккаунта?{' '}
+            Нет аккаунта?{" "}
             <Link href={routes.register.href} className="text-primary hover:underline">
               Зарегистрироваться
             </Link>

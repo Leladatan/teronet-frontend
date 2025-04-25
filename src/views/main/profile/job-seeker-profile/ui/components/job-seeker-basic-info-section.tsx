@@ -1,13 +1,13 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { jobSeeker } from '@/views/main/profile/job-seeker-profile/const';
+import { motion } from "framer-motion";
+import { jobSeeker } from "@/views/main/profile/job-seeker-profile/const";
 
-import { Calendar, Clock, GraduationCap } from 'lucide-react';
+import { Calendar, Clock, GraduationCap } from "lucide-react";
 
-import { MotionAvatar, MotionCard } from '@/shared/const/motion';
-import { AvatarFallback, AvatarImage } from '@/shared/components/ui/avatar';
-import { CardContent, CardDescription, CardHeader, CardTitle } from '@/shared/components/ui/card';
+import { MotionAvatar, MotionCard } from "@/shared/const/motion";
+import { AvatarFallback, AvatarImage } from "@/shared/components/ui/avatar";
+import { CardContent, CardDescription, CardHeader, CardTitle } from "@/shared/components/ui/card";
 
 const JobSeekerBasicInfoSection = () => {
   return (
@@ -16,7 +16,7 @@ const JobSeekerBasicInfoSection = () => {
         className="w-32 h-32 border-4 border-primary/10"
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
-        transition={{ type: 'spring', stiffness: 260, damping: 20 }}
+        transition={{ type: "spring", stiffness: 260, damping: 20 }}
       >
         <AvatarImage src="/placeholder.svg?height=128&width=128" alt={jobSeeker.fullName} />
         <AvatarFallback className="text-3xl bg-primary/10">

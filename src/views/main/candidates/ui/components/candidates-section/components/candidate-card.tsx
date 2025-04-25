@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import { JobSeeker } from '@/entities/job-seekers/types';
+import { JobSeeker } from "@/entities/job-seekers/types";
 
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
-import { Mail, MessageCircle } from 'lucide-react';
-import { Badge } from '@/shared/components/ui/badge';
-import { Card, CardContent, CardHeader } from '@/shared/components/ui/card';
+import { Mail, MessageCircle } from "lucide-react";
+import { Badge } from "@/shared/components/ui/badge";
+import { Card, CardContent, CardHeader } from "@/shared/components/ui/card";
 
 interface Props {
   candidate: JobSeeker;
@@ -33,7 +33,7 @@ const CandidateCard = ({ candidate }: Props) => {
           <div className="flex items-center gap-2">
             <MessageCircle className="h-4 w-4 text-purple-500" />
             <a
-              href={`https://t.me/${candidate.telegram.replace('@', '')}`}
+              href={`https://t.me/${candidate.telegram.replace("@", "")}`}
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm hover:underline text-gray-700"

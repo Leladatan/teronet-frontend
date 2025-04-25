@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { routes } from '@/shared/const/routes';
+import { motion } from "framer-motion";
+import { routes } from "@/shared/const/routes";
 
-import Link from 'next/link';
-import { Switch } from '@/shared/components/ui/switch';
+import Link from "next/link";
+import { Switch } from "@/shared/components/ui/switch";
 
-import { useState } from 'react';
+import { useState } from "react";
 
 const HeaderLogo = () => {
   const [isHovered, setIsHovered] = useState<boolean>(false);
@@ -35,13 +35,13 @@ const HeaderLogo = () => {
         <motion.h1
           className="flex items-center m-0 leading-none font-bold text-xl md:text-2xl"
           animate={{
-            textShadow: isClicked ? '0 0 8px rgba(41,128,185,0.5)' : 'none',
+            textShadow: isClicked ? "0 0 8px rgba(41,128,185,0.5)" : "none",
           }}
         >
           <motion.span
             className="text-[#39A9F4]"
             animate={{
-              color: isHovered ? '#2980b9' : '#39A9F4',
+              color: isHovered ? "#2980b9" : "#39A9F4",
               y: isHovered ? -2 : 0,
             }}
           >

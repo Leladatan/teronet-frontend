@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
 const HeroMain = () => {
   return (
@@ -37,7 +37,7 @@ const HeroMain = () => {
               transition={{
                 duration: 5,
                 repeat: Number.POSITIVE_INFINITY,
-                repeatType: 'reverse',
+                repeatType: "reverse",
               }}
             />
             <motion.div
@@ -49,7 +49,7 @@ const HeroMain = () => {
               transition={{
                 duration: 4,
                 repeat: Number.POSITIVE_INFINITY,
-                repeatType: 'reverse',
+                repeatType: "reverse",
                 delay: 0.5,
               }}
             />
@@ -62,7 +62,7 @@ const HeroMain = () => {
               transition={{
                 duration: 4.5,
                 repeat: Number.POSITIVE_INFINITY,
-                repeatType: 'reverse',
+                repeatType: "reverse",
                 delay: 1,
               }}
             />

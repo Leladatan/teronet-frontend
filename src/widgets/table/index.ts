@@ -1,1 +1,1 @@
-export { default } from './ui/table';
+export { default } from "./ui/table";

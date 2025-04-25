@@ -1,4 +1,4 @@
-import AdminMenu from '@/widgets/admin-menu';
+import AdminMenu from "@/widgets/admin-menu";
 
 const Layout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
   return (

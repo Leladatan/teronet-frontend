@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
 const HeroAnimation = () => {
   return (
@@ -19,7 +19,7 @@ const HeroAnimation = () => {
               duration: 2,
               delay: i * 0.1,
               repeat: Number.POSITIVE_INFINITY,
-              repeatType: 'reverse',
+              repeatType: "reverse",
             }}
           />
         ))}

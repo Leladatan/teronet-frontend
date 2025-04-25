@@ -1,1 +1,1 @@
-export { default } from './ui/admin-menu';
+export { default } from "./ui/admin-menu";

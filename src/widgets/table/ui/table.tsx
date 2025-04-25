@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from "framer-motion";
 
 import {
   Table as ShadcnTable,
@@ -9,9 +9,9 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@/shared/components/ui/table';
-import SelectLimit from '@/widgets/table/ui/components/select-limit';
-import Pagination from '@/widgets/table/ui/components/pagination';
+} from "@/shared/components/ui/table";
+import SelectLimit from "@/widgets/table/ui/components/select-limit";
+import Pagination from "@/widgets/table/ui/components/pagination";
 
 import {
   ColumnDef,
@@ -19,8 +19,8 @@ import {
   getCoreRowModel,
   getPaginationRowModel,
   useReactTable,
-} from '@tanstack/react-table';
-import { useState } from 'react';
+} from "@tanstack/react-table";
+import { useState } from "react";
 
 interface Props<TData, TValue> {
   data: TData[];
@@ -41,7 +41,7 @@ const DataTable = <TData extends object, TValue>({ data, columns }: Props<TData,
     manualPagination: false,
     state: { pagination: { pageIndex: pageIndex - 1, pageSize } },
     onPaginationChange: (updater) => {
-      if (typeof updater === 'function') {
+      if (typeof updater === "function") {
         const newState = updater(table.getState().pagination);
         setPageIndex(newState.pageIndex + 1);
         setPageSize(newState.pageSize);

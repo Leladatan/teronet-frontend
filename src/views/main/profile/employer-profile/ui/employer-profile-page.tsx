@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
-import EmployerBasicInfoSection from '@/views/main/profile/employer-profile/ui/components/employer-basic-info-section';
-import EmployerDetailedInformationSection from '@/views/main/profile/employer-profile/ui/components/detailed-information/employer-detailed-information-section';
+import EmployerBasicInfoSection from "@/views/main/profile/employer-profile/ui/components/employer-basic-info-section";
+import EmployerDetailedInformationSection from "@/views/main/profile/employer-profile/ui/components/detailed-information/employer-detailed-information-section";
 
 const EmployerProfilePage = () => {
   return (

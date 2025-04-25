@@ -1,24 +1,24 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
+import { useState } from "react";
 
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useMutation } from '@tanstack/react-query';
-import { motion } from 'framer-motion';
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useMutation } from "@tanstack/react-query";
+import { motion } from "framer-motion";
 
-import Link from 'next/link';
+import Link from "next/link";
 
-import { EyeIcon, EyeOffIcon, LockIcon, MailIcon } from 'lucide-react';
+import { EyeIcon, EyeOffIcon, LockIcon, MailIcon } from "lucide-react";
 
-import { authRequests } from '@/entities/auth';
+import { authRequests } from "@/entities/auth";
 
-import { ErrorResponse } from '@/entities/types';
+import { ErrorResponse } from "@/entities/types";
 
-import { useToast } from '@/shared/hooks/use-toast';
+import { useToast } from "@/shared/hooks/use-toast";
 
-import { Button } from '@/shared/components/ui/button';
-import { Input } from '@/shared/components/ui/input';
+import { Button } from "@/shared/components/ui/button";
+import { Input } from "@/shared/components/ui/input";
 import {
   Form,
   FormControl,
@@ -26,10 +26,10 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/shared/components/ui/form';
+} from "@/shared/components/ui/form";
 
-import { loginContainerVariants, loginItemVariants } from '@/views/auth/login/const/motion';
-import { loginFormSchema, LoginFormValues } from '@/views/auth/login/const/zod';
+import { loginContainerVariants, loginItemVariants } from "@/views/auth/login/const/motion";
+import { loginFormSchema, LoginFormValues } from "@/views/auth/login/const/zod";
 
 const LoginForm = () => {
   const { toast } = useToast();
@@ -39,8 +39,8 @@ const LoginForm = () => {
   const form = useForm<LoginFormValues>({
     resolver: zodResolver(loginFormSchema),
     defaultValues: {
-      email: '',
-      password: '',
+      email: "",
+      password: "",
     },
   });
 
@@ -48,16 +48,16 @@ const LoginForm = () => {
     mutationFn: (values: LoginFormValues) => authRequests.login(values),
     onSuccess: () => {
       toast({
-        title: 'Авторизация успешна',
-        description: 'Вы успешно авторизовались',
-        variant: 'default',
+        title: "Авторизация успешна",
+        description: "Вы успешно авторизовались",
+        variant: "default",
       });
     },
     onError: (error: ErrorResponse) => {
       toast({
-        title: 'Ошибка авторизации',
+        title: "Ошибка авторизации",
         description: error.response?.data.message,
-        variant: 'destructive',
+        variant: "destructive",
       });
     },
   });
@@ -106,7 +106,7 @@ const LoginForm = () => {
                 <FormControl>
                   <div className="relative">
                     <Input
-                      type={showPassword ? 'text' : 'password'}
+                      type={showPassword ? "text" : "password"}
                       placeholder="Введите пароль"
                       className="pr-10"
                       {...field}
@@ -150,7 +150,7 @@ const LoginForm = () => {
                 Вход...
               </div>
             ) : (
-              'Войти'
+              "Войти"
             )}
           </Button>
         </motion.div>

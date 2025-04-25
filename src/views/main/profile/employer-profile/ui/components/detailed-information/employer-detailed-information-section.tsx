@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from "framer-motion";
 
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/shared/components/ui/tabs';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/shared/components/ui/tabs";
 
-import EmployerOverviewSection from '@/views/main/profile/employer-profile/ui/components/detailed-information/ui/employer-overview-section';
-import EmployerRequirementsSection from '@/views/main/profile/employer-profile/ui/components/detailed-information/ui/employer-requirements-section';
-import EmployerSkillsSection from '@/views/main/profile/employer-profile/ui/components/detailed-information/ui/employer-skills-section';
+import EmployerOverviewSection from "@/views/main/profile/employer-profile/ui/components/detailed-information/ui/employer-overview-section";
+import EmployerRequirementsSection from "@/views/main/profile/employer-profile/ui/components/detailed-information/ui/employer-requirements-section";
+import EmployerSkillsSection from "@/views/main/profile/employer-profile/ui/components/detailed-information/ui/employer-skills-section";
 
 const EmployerDetailedInformationSection = () => {
   return (

@@ -1,13 +1,13 @@
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 import {
   employerCardVariants,
   employerListItemVariants,
-} from '@/views/main/profile/employer-profile/const/motion';
-import { employer } from '@/views/main/profile/employer-profile/const';
+} from "@/views/main/profile/employer-profile/const/motion";
+import { employer } from "@/views/main/profile/employer-profile/const";
 
-import { CheckCircle } from 'lucide-react';
-import { MotionCard } from '@/shared/const/motion';
-import { CardContent, CardDescription, CardHeader, CardTitle } from '@/shared/components/ui/card';
+import { CheckCircle } from "lucide-react";
+import { MotionCard } from "@/shared/const/motion";
+import { CardContent, CardDescription, CardHeader, CardTitle } from "@/shared/components/ui/card";
 
 const EmployerSkillsSection = () => {
   return (

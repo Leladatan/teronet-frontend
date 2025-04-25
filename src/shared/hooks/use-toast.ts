@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import * as React from 'react';
+import * as React from "react";
 
-import type { ToastActionElement, ToastProps } from '@/shared/components/ui/toast';
+import type { ToastActionElement, ToastProps } from "@/shared/components/ui/toast";
 
 const TOAST_LIMIT = 1;
 const TOAST_REMOVE_DELAY = 1000000;
@@ -15,10 +15,10 @@ type ToasterToast = ToastProps & {
 };
 
 const actionTypes = {
-  ADD_TOAST: 'ADD_TOAST',
-  UPDATE_TOAST: 'UPDATE_TOAST',
-  DISMISS_TOAST: 'DISMISS_TOAST',
-  REMOVE_TOAST: 'REMOVE_TOAST',
+  ADD_TOAST: "ADD_TOAST",
+  UPDATE_TOAST: "UPDATE_TOAST",
+  DISMISS_TOAST: "DISMISS_TOAST",
+  REMOVE_TOAST: "REMOVE_TOAST",
 } as const;
 
 let count = 0;
@@ -43,11 +43,11 @@ type Action =
     }
   | {
       type: typeof actionTypes.DISMISS_TOAST;
-      toastId?: ToasterToast['id'];
+      toastId?: ToasterToast["id"];
     }
   | {
       type: typeof actionTypes.REMOVE_TOAST;
-      toastId?: ToasterToast['id'];
+      toastId?: ToasterToast["id"];
     };
 
 const toastTimeouts = new Map<string, ReturnType<typeof setTimeout>>();
@@ -136,7 +136,7 @@ function dispatch(action: Action) {
   });
 }
 
-type Toast = Omit<ToasterToast, 'id'>;
+type Toast = Omit<ToasterToast, "id">;
 
 function toast(props: Toast) {
   const id = genId();

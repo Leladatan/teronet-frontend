@@ -1,5 +1,5 @@
-import HeroSection from '@/views/main/candidates/ui/components/hero-section/hero-section';
-import CandidatesSection from '@/views/main/candidates/ui/components/candidates-section/candidates-section';
+import HeroSection from "@/views/main/candidates/ui/components/hero-section/hero-section";
+import CandidatesSection from "@/views/main/candidates/ui/components/candidates-section/candidates-section";
 
 const CandidatesPage = () => {
   return (

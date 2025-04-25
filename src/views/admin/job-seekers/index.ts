@@ -1,1 +1,1 @@
-export { default } from './ui/job-seekers-page';
+export { default } from "./ui/job-seekers-page";

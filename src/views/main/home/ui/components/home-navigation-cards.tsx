@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { routes } from '@/shared/const/routes';
+import { motion } from "framer-motion";
+import { routes } from "@/shared/const/routes";
 
-import Link from 'next/link';
-import { Button } from '@/shared/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/shared/components/ui/card';
+import Link from "next/link";
+import { Button } from "@/shared/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/shared/components/ui/card";
 
 const HomeNavigationCards = () => {
   const cardVariants = {

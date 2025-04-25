@@ -1,17 +1,17 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { cn } from '@/shared/lib/utils';
-import { navItems } from '@/widgets/admin-menu/const';
+import { motion } from "framer-motion";
+import { cn } from "@/shared/lib/utils";
+import { navItems } from "@/widgets/admin-menu/const";
 
-import Link from 'next/link';
-import { ChevronRight, Menu, X } from 'lucide-react';
-import { Button } from '@/shared/components/ui/button';
-import { ScrollArea } from '@radix-ui/react-scroll-area';
-import { Sheet, SheetContent, SheetTrigger } from '@/shared/components/ui/sheet';
+import Link from "next/link";
+import { ChevronRight, Menu, X } from "lucide-react";
+import { Button } from "@/shared/components/ui/button";
+import { ScrollArea } from "@radix-ui/react-scroll-area";
+import { Sheet, SheetContent, SheetTrigger } from "@/shared/components/ui/sheet";
 
-import { useState } from 'react';
-import { usePathname } from 'next/navigation';
+import { useState } from "react";
+import { usePathname } from "next/navigation";
 
 const AdminMenu = () => {
   const pathname = usePathname();
@@ -27,10 +27,10 @@ const AdminMenu = () => {
                 key={index}
                 href={item.href}
                 className={cn(
-                  'relative flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors',
+                  "relative flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors",
                   pathname === item.href
-                    ? 'text-primary-foreground'
-                    : 'text-muted-foreground hover:text-foreground hover:bg-accent'
+                    ? "text-primary-foreground"
+                    : "text-muted-foreground hover:text-foreground hover:bg-accent"
                 )}
               >
                 {pathname === item.href && (
@@ -76,10 +76,10 @@ const AdminMenu = () => {
                   href={item.href}
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={cn(
-                    'relative flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors',
+                    "relative flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors",
                     pathname === item.href
-                      ? 'text-primary-foreground'
-                      : 'text-muted-foreground hover:text-foreground hover:bg-accent'
+                      ? "text-primary-foreground"
+                      : "text-muted-foreground hover:text-foreground hover:bg-accent"
                   )}
                 >
                   {pathname === item.href && (
