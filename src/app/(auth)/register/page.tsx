@@ -1,7 +1,7 @@
-import RegisterPage from "@/views/auth/register";
+import RegisterPage from '@/views/auth/register';
 
 const Page = () => {
-    return <RegisterPage/>;
+  return <RegisterPage />;
 };
 
 export default Page;

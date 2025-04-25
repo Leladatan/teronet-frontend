@@ -1,19 +1,25 @@
-import axios from "axios";
+import axios from 'axios';
 
 export const api = axios.create({
-    withCredentials: true,
-    baseURL: process.env.NEXT_PUBLIC_API_BASE_URL,
-    timeout: 5000,
+  withCredentials: true,
+  baseURL: process.env.NEXT_PUBLIC_API_BASE_URL,
+  timeout: 5000,
 });
 
-api.interceptors.request.use(config => {
+api.interceptors.request.use(
+  (config) => {
     return config;
-}, error => {
+  },
+  (error) => {
     return Promise.reject(error);
-});
+  }
+);
 
-api.interceptors.response.use(response => {
+api.interceptors.response.use(
+  (response) => {
     return response;
-}, error => {
+  },
+  (error) => {
     return Promise.reject(error);
-});
+  }
+);

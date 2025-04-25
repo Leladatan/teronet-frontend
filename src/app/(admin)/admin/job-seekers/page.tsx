@@ -1,7 +1,7 @@
-import JobSeekersPage from "@/views/admin/job-seekers";
+import JobSeekersPage from '@/views/admin/job-seekers';
 
 const Page = () => {
-    return <JobSeekersPage />;
+  return <JobSeekersPage />;
 };
 
 export default Page;

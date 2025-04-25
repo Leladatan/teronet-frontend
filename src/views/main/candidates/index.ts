@@ -1,1 +1,1 @@
-export { default } from "./ui/candidates-page";
+export { default } from './ui/candidates-page';

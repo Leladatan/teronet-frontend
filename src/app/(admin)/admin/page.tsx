@@ -1,7 +1,7 @@
-import AdminPage from "@/views/admin/main";
+import AdminPage from '@/views/admin/main';
 
 const Page = () => {
-    return <AdminPage/>;
+  return <AdminPage />;
 };
 
 export default Page;

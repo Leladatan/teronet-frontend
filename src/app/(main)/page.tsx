@@ -1,7 +1,7 @@
-import HomePage from "@/views/main/home";
+import HomePage from '@/views/main/home';
 
 const Page = () => {
-  return <HomePage/>;
+  return <HomePage />;
 };
 
 export default Page;
