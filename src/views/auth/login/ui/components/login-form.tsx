@@ -1,10 +1,12 @@
 "use client"
 
+import type {AxiosError} from "axios";
+
 import { z } from "zod"
 import { motion } from "framer-motion"
 import { loginContainerVariants, loginItemVariants } from "@/views/auth/login/const/motion"
 
-import {authRequests} from "@/entities/auth";
+import { authRequests } from "@/entities/auth"
 
 import { EyeIcon, EyeOffIcon, LockIcon, MailIcon } from "lucide-react"
 import Link from "next/link"
@@ -15,6 +17,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useState } from "react"
 import { useForm } from "react-hook-form"
+import { useMutation } from "@tanstack/react-query"
 
 const formSchema = z.object({
     email: z.string().email({
@@ -34,7 +37,6 @@ type FormValues = z.infer<typeof formSchema>
 
 const LoginForm = () => {
     const [showPassword, setShowPassword] = useState<boolean>(false)
-    const [isLoading, setIsLoading] = useState<boolean>(false)
     const [errorMessage, setErrorMessage] = useState<string | null>(null)
 
     const form = useForm<FormValues>({
@@ -45,19 +47,20 @@ const LoginForm = () => {
         },
     })
 
-    const onSubmit = (values: FormValues) => {
-        setIsLoading(true)
-        setErrorMessage(null)
-
-        try {
-            const data = authRequests.login(values)
-
+    const loginMutation = useMutation({
+        mutationFn: (values: FormValues) => authRequests.login(values),
+        onSuccess: (data) => {
             console.log("Успешный вход:", data)
-        } catch (error: any) {
+            setErrorMessage(null)
+        },
+        onError: (error: AxiosError) => {
+            console.log(error);
             setErrorMessage(error.message || "Ошибка при входе")
-        } finally {
-            setIsLoading(false)
-        }
+        },
+    })
+
+    const onSubmit = (values: FormValues) => {
+        loginMutation.mutate(values)
     }
 
     return (
@@ -133,8 +136,13 @@ const LoginForm = () => {
                 )}
 
                 <motion.div variants={loginItemVariants}>
-                    <Button type="button" className="w-full" disabled={isLoading} onClick={form.handleSubmit(onSubmit)}>
-                        {isLoading ? (
+                    <Button
+                        type="button"
+                        className="w-full"
+                        disabled={loginMutation.isPending}
+                        onClick={form.handleSubmit(onSubmit)}
+                    >
+                        {loginMutation.isPending ? (
                             <div className="flex items-center gap-2">
                                 <div className="h-4 w-4 border-2 border-current border-t-transparent rounded-full animate-spin" />
                                 Вход...

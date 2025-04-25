@@ -4,7 +4,8 @@ import type {NextFont} from "next/dist/compiled/@next/font";
 import "./style/globals.css";
 import {Inter} from "next/font/google";
 
-import Header from "../widgets/header";
+import Header from "@/widgets/header";
+import ReactQueryProvider from "@/providers/query-provider";
 
 const inter: NextFont = Inter({subsets: ["latin"]});
 
@@ -53,8 +54,10 @@ const RootLayout = ({children}: Readonly<{ children: React.ReactNode }>) => {
     return (
         <html lang="ru">
         <body className={inter.className}>
-        <Header/>
-        {children}
+        <ReactQueryProvider>
+            <Header/>
+            {children}
+        </ReactQueryProvider>
         </body>
         </html>
     );
