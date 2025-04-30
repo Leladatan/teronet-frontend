@@ -47,7 +47,7 @@ const Logo = () => {
           >
             BUSINESS
           </motion.span>
-          <motion.span className="text-[#333333] ml-2" animate={{ y: isHovered ? 2 : 0 }}>
+          <motion.span className="text-foreground ml-2" animate={{ y: isHovered ? 2 : 0 }}>
             PRACTICE
           </motion.span>
         </motion.h1>

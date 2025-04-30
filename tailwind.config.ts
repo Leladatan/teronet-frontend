@@ -62,28 +62,7 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       // Добавление нового цвета
-      custom: {
-        white: "#FFFFFF",
-        dark: "#333333",
-
-        blue: "#2980b9",
-        "light-blue": "#39A9F4",
-
-        gray: "#777777",
-        "light-gray": "#CCCCCC",
-
-        accent: "#FF6F61",
-        "accent-foreground": "#FFFFFF",
-
-        success: "#28A745",
-        "success-foreground": "#FFFFFF",
-
-        warning: "#FFC107",
-        "warning-foreground": "#333333",
-
-        error: "#DC3545",
-        "error-foreground": "#FFFFFF",
-      },
+      custom: {},
     },
   },
   plugins: [animate],

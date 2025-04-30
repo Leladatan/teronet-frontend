@@ -25,7 +25,7 @@ const RegisterPage = () => {
   const [userType, setUserType] = useState<UserTypes>("JOB_SEEKER");
 
   return (
-    <section className="flex items-center justify-center min-h-screen bg-gradient-to-b from-slate-50 to-slate-100 p-4">
+    <section className="flex items-center justify-center">
       <Card className="w-full max-w-md overflow-hidden">
         <CardHeader className="pb-0">
           <motion.div

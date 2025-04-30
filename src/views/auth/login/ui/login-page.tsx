@@ -17,7 +17,7 @@ import LoginForm from "@/views/auth/login/ui/components/login-form";
 
 const LoginPage = () => {
   return (
-    <section className="flex items-center justify-center min-h-screen bg-gradient-to-b from-slate-50 to-slate-100 p-4">
+    <section className="flex items-center justify-center">
       <Card className="w-full max-w-md overflow-hidden">
         <CardHeader className="pb-4">
           <motion.div
