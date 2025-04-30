@@ -12,7 +12,7 @@ export const AuthMiddleware = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter();
   const pathname = usePathname();
   const { isAuthenticated, user, checkAuth } = useUserStore();
-  const [isCheckingAuth, setIsCheckingAuth] = useState(true);
+  const [isCheckingAuth, setIsCheckingAuth] = useState<boolean>(true);
 
   useEffect(() => {
     const checkAuthStatus = async () => {
