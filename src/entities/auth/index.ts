@@ -9,4 +9,5 @@ export const authRequests = {
   register: async (data: AuthRegister) => await api.post("/auth/register", data),
   me: async () => await api.post<User>("/auth/me").then((res) => res.data),
   logout: async () => await api.post("/auth/logout"),
+  refresh: async () => await api.post<{ user: User }>("/auth/refresh").then((res) => res.data),
 };
