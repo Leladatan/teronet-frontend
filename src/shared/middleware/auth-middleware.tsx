@@ -1,10 +1,9 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import { useUserStore } from "@/shared/store/user-store";
-
-import Loader from "@/shared/components/loader";
+import Cookies from "js-cookie";
 
 const publicRoutes = ["/", "/login", "/register"];
 const adminRoutes = ["/admin"];
@@ -12,32 +11,56 @@ const adminRoutes = ["/admin"];
 export const AuthMiddleware = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter();
   const pathname = usePathname();
-  const { isAuthenticated, user, checkAuth, isLoading } = useUserStore();
+  const { isAuthenticated, user, checkAuth } = useUserStore();
+  const [isCheckingAuth, setIsCheckingAuth] = useState(true);
 
   useEffect(() => {
-    (async () => await checkAuth())();
+    const checkAuthStatus = async () => {
+      const hasAccessToken = Cookies.get("access_token");
+      const hasRefreshToken = Cookies.get("refresh_token");
+
+      if (!hasAccessToken && !hasRefreshToken) {
+        setIsCheckingAuth(false);
+        return;
+      }
+
+      try {
+        await checkAuth();
+      } finally {
+        setIsCheckingAuth(false);
+      }
+    };
+
+    checkAuthStatus();
   }, [checkAuth]);
 
   useEffect(() => {
-    if (isLoading) return;
+    if (isCheckingAuth) return;
 
-    const isPublicRoute = publicRoutes.some((route) => pathname.startsWith(route));
-    const isAdminRoute = adminRoutes.some((route) => pathname.startsWith(route));
+    const isPublicRoute = publicRoutes.includes(pathname);
+    const isAdminRoute = adminRoutes.some(route => pathname.startsWith(route));
+    const isAuthRoute = pathname === "/login" || pathname === "/register";
 
-    if (!isAuthenticated && (!isPublicRoute || isAdminRoute)) {
-      router.push("/login");
+    if (!isAuthenticated) {
+      if (!isPublicRoute) {
+        router.push("/login");
+        return;
+      }
       return;
     }
 
-    if (isAuthenticated && isAdminRoute && user?.role !== "ADMIN") {
-      router.push("/");
-      return;
-    }
-  }, [isAuthenticated, pathname, router, isLoading, user, user?.role]);
+    if (isAuthenticated) {
+      if (isAuthRoute) {
+        router.push("/");
+        return;
+      }
 
-  if (isLoading) {
-    return <Loader />;
-  }
+      if (isAdminRoute && user?.role !== "ADMIN") {
+        router.push("/");
+        return;
+      }
+    }
+  }, [isAuthenticated, pathname, router, isCheckingAuth, user?.role]);
 
   return <>{children}</>;
 };
