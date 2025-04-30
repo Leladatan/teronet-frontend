@@ -29,6 +29,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 import { useToast } from "@/shared/hooks/use-toast";
 import { useUserStore } from "@/shared/store/user-store";
+import {routes} from "@/shared/const/routes";
 
 const LoginForm = () => {
   const router = useRouter();
@@ -54,7 +55,7 @@ const LoginForm = () => {
         variant: "default",
       });
       setUser(user);
-      router.push("/");
+      router.push(routes.home.href);
     },
     onError: (error: ErrorResponse) => {
       toast({

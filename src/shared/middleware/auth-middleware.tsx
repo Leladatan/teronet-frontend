@@ -1,12 +1,15 @@
 "use client";
 
+import Cookies from "js-cookie";
+import {routes} from "@/shared/const/routes";
+
 import { useEffect, useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
-import { useUserStore } from "@/shared/store/user-store";
-import Cookies from "js-cookie";
 
-const publicRoutes = ["/", "/login", "/register"];
-const adminRoutes = ["/admin"];
+import { useUserStore } from "@/shared/store/user-store";
+
+const publicRoutes = [routes.home.href, routes.login.href, routes.register.href];
+const adminRoutes = [routes.admin.href];
 
 export const AuthMiddleware = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter();
@@ -39,11 +42,11 @@ export const AuthMiddleware = ({ children }: { children: React.ReactNode }) => {
 
     const isPublicRoute = publicRoutes.includes(pathname);
     const isAdminRoute = adminRoutes.some(route => pathname.startsWith(route));
-    const isAuthRoute = pathname === "/login" || pathname === "/register";
+    const isAuthRoute = pathname === routes.login.href || pathname === routes.register.href;
 
     if (!isAuthenticated) {
       if (!isPublicRoute) {
-        router.push("/login");
+        router.push(routes.login.href);
         return;
       }
       return;
@@ -51,12 +54,12 @@ export const AuthMiddleware = ({ children }: { children: React.ReactNode }) => {
 
     if (isAuthenticated) {
       if (isAuthRoute) {
-        router.push("/");
+        router.push(routes.home.href);
         return;
       }
 
       if (isAdminRoute && user?.role !== "ADMIN") {
-        router.push("/");
+        router.push(routes.home.href);
         return;
       }
     }

@@ -11,6 +11,7 @@ import { useMutation } from "@tanstack/react-query";
 import { useToast } from "@/shared/hooks/use-toast";
 import { useUserStore } from "@/shared/store/user-store";
 import { useRouter } from "next/navigation";
+import {routes} from "@/shared/const/routes";
 
 export const Header = () => {
   const router = useRouter();
@@ -27,7 +28,7 @@ export const Header = () => {
         description: "Вы успешно покинули учетную запись",
         variant: "default",
       });
-      router.push("/");
+      router.push(routes.home.href);
       logout();
     },
   });
